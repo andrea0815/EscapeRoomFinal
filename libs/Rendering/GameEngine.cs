@@ -29,6 +29,7 @@ private int moveCount;
         }
     }
 
+
     private GameEngine() {
         //INIT PROPS HERE IF NEEDED
         gameObjectFactory = new GameObjectFactory();
@@ -170,62 +171,114 @@ public GameObject GetWallObject(){
      return null;
 }
 
-public void CanMoveBox(GameObject wall, GameObject player, GameObject box, Direction playerdirection)
+// public void CheckCollisionWithAllBoxes (GameObject player, Direction playerDirection){
+//
+//
+//      foreach (GameObject boxObject1 in gameObjects.Where(obj => obj.Type == GameObjectType.Box)){
+//   GameObject playerObject = GetPlayerObject();
+//        switch (playerDirection)
+//                {
+//                    case Direction.Up:
+//                       foreach (GameObject boxObject2 in gameObjects.Where(obj => obj.Type == GameObjectType.Box)){
+//                        if (boxObject1.PosX == boxObject2.PosX && boxObject1.PosY == boxObject2.PosY && playerObject.PosX +1 == boxObject1.PosX ) {
+//                         {
+//
+//                                                                              playerObject.PosY++;
+//                                                          }
+//                     }
+//
+//                       }
+//
+//                        break;
+//                    case Direction.Down:
+//
+//                        break;
+//                    case Direction.Left:
+//
+//                        break;
+//                    case Direction.Right:
+//
+//                        break;
+//                    default:
+//                        break;
+//
+//
+//
+//
+// }
+//
+// }
+//
+// }
+
+
+public void CheckWallCollision(GameObject player, Direction playerDirection)
 {
-    GameObject playerObj = GetPlayerObject();
-    GameObject boxObj = GetBox();
+    GameObject playerObject = GetPlayerObject();
 
-   foreach (GameObject obj in gameObjects){
-         if(obj is Obstacle){
-            wall = obj;
-             switch (playerdirection)
+    // Loop through all walls to see if there are any collisions when the player moves
+    foreach (GameObject wallObject in gameObjects.Where(obj => obj.Type == GameObjectType.Obstacle))
+    {
+        foreach (GameObject boxObject in GetBoxObjects())
+        {
+
+        switch (playerDirection)
+        {
+            case Direction.Up:
+               if (boxObject.PosY == wallObject.PosY && boxObject.PosX == wallObject.PosX)
+                                {
+                                    boxObject.PosY++;
+                                    playerObject.PosY++;
+                                }
+
+                else if (playerObject.PosY == wallObject.PosY && playerObject.PosX == wallObject.PosX)
                 {
-                    case Direction.Up:
-                       if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosY++;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosY++;
-                           boxObj.PosY++;
-                       }
-                        break;
-                    case Direction.Down:
-                        if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosY--;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosY--;
-                           boxObj.PosY--;
-                       }
-                        break;
-                    case Direction.Left:
-
-                        if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosX++;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosX++;
-                           boxObj.PosX++;
-                       }
-                        break;
-                    case Direction.Right:
-                        if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosX--;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosX--;
-                           boxObj.PosX--;
-                       }
-                        break;
-                        default:
-                            break;
-                       }
-                       }
-                       }
-                       
-                       }
+                    playerObject.PosY++;
+                }
 
 
+                break;
+            case Direction.Down:
+ if (boxObject.PosY == wallObject.PosY && boxObject.PosX == wallObject.PosX)
+                                {
+                                    boxObject.PosY--;
+                                    playerObject.PosY--;
+                                }
+                else if (playerObject.PosY == wallObject.PosY && playerObject.PosX == wallObject.PosX)
+                {
+                    playerObject.PosY--;
+                }
+                break;
+            case Direction.Left:
+              if (boxObject.PosX == wallObject.PosX && boxObject.PosY == wallObject.PosY)
+                {
+                    boxObject.PosX++;
+                    playerObject.PosX++;
+                }
+
+               else if (playerObject.PosX == wallObject.PosX && playerObject.PosY == wallObject.PosY)
+                                {
+                                    playerObject.PosX++;
+                                }
+                break;
+            case Direction.Right:
+                if (boxObject.PosX == wallObject.PosX && boxObject.PosY == wallObject.PosY)
+                {
+                    boxObject.PosX--;
+                    playerObject.PosX--;
+                }
+
+                 else if (playerObject.PosX == wallObject.PosX && playerObject.PosY == wallObject.PosY)
+                                {
+                                    playerObject.PosX--;
+                                }
+                break;
+            default:
+                break;
+        }
+    }
+    }
+}
 
 
     public void Setup(){
