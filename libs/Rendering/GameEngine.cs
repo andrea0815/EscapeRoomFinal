@@ -276,22 +276,22 @@ public void CanMoveBox(GameObject wall, GameObject player, GameObject box, Direc
 {
 
     // Check if either the box or goal is null before attempting to access their properties
-        if (box1 == null || box2 == null)
+        if ( box1 == null)
         {
             Console.WriteLine("Error: The box object is null.");
             return false; // Return false to indicate that the level cannot be finished due to error
         }
-        if (goal1 == null || goal2 == null)	
+        if ( goal1 == null)
         {
             Console.WriteLine("Error: The goal object is null.");
             return false; // Return false to indicate that the level cannot be finished due to error
         }
 
     bool boxOnGoal1 = (box1.PosX == goal1.PosX && box1.PosY == goal1.PosY);
-    bool boxOnGoal2 = (box2.PosX == goal2.PosX && box2.PosY == goal2.PosY);
+    //bool boxOnGoal2 = (box2.PosX == goal2.PosX && box2.PosY == goal2.PosY);
 
     // Check if the box is on the goal
-    if (boxOnGoal1 && boxOnGoal2)
+    if (boxOnGoal1 )//&& boxOnGoal2
     {
 
         // Increment the current level index

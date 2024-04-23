@@ -1,477 +1,1170 @@
 {
   "map": {
-    "width": 15,
-    "height": 10 
+    "width": 35,
+    "height": 8
   },
   "gameObjects": [
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 4,
-      "PosY": 6
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 4,
-      "PosY": 5
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 8,
-      "PosY": 4
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 7,
-      "PosY": 4
-    },
-    
-     {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 2,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 3,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 3,
-      "PosY": 4
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 3,
-      "PosY": 5
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 5,
-      "PosY": 6
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 2,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 1,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 13,
-      "PosY": 1
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 12,
-      "PosY": 1
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 11,
-      "PosY": 1
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 9,
-      "PosY": 1
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 9,
-      "PosY": 2
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 9,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 11,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 10,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 13,
-      "PosY": 6
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 10,
-      "PosY": 8
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 7,
-      "PosY": 8
-    },
-    {
-      "Type": 1,
-      "Color": 2,
-      "PosX": 4,
-      "PosY": 8
-    },
+
     {
       "Type": 0,
       "Color": 5,
-      "PosX": 2,
+      "PosX": 3,
       "PosY": 1
     },
-    {
-      "Type": 2,
-      "Color": 7,
-      "PosX": 2,
-      "PosY": 2
-    },
+
     {
       "Type": 2,
       "Color": 6,
-      "PosX": 6,
-      "PosY": 3
-    },
-    {
-      "Type": 3,
-      "Color": 7,
       "PosX": 4,
       "PosY": 2
     },
     {
       "Type": 3,
-      "Color": 6,
-      "PosX": 6,
-      "PosY": 8
+      "PosX": 5,
+      "PosY": 2
+    },
+
+
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 21,
+      "PosY": 5,
+      "CharRepresentation": "┌"
     },
     {
       "Type": 1,
       "Color": 3,
-      "PosX": 0,
-      "PosY": 0
+      "PosX": 22,
+      "PosY": 5,
+      "CharRepresentation": "─"
     },
     {
       "Type": 1,
       "Color": 3,
+      "PosX": 22,
+      "PosY": 6,
+      "CharRepresentation": "─"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 23,
+      "PosY": 5,
+      "CharRepresentation": "┐"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 23,
+      "PosY": 6,
+      "CharRepresentation": "┘"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 21,
+      "PosY": 6,
+      "CharRepresentation": "└"
+    },
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 20,
+      "PosY": 6,
+      "CharRepresentation": "╘"
+    },
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 24,
+      "PosY": 6,
+      "CharRepresentation": "╛"
+    },
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 20,
+      "PosY": 5,
+      "CharRepresentation": "╘"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 24,
+      "PosY": 5,
+      "CharRepresentation": "╛"
+    },
+
+
+    {
+      "Type": 1,
+      "Color": 7,
       "PosX": 1,
-      "PosY": 0
+      "PosY": 1,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
+      "Color": 7,
+      "PosX": 1,
+      "PosY": 2,
+      "CharRepresentation": "█"
+    },
+    {
+      "Type": 1,
+      "Color": 7,
       "PosX": 2,
-      "PosY": 0
+      "PosY": 1,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
+      "Color": 7,
+      "PosX": 2,
+      "PosY": 2,
+      "CharRepresentation":"█"
+    },
+    {
+      "Type": 1,
+      "PosX": 12,
+      "PosY": 2,
+      "CharRepresentation":"█"
+    },
+    {
+      "Type": 1,
+      "PosX": 12,
+      "PosY": 3,
+      "CharRepresentation":"█"
+    },
+
+    {
+      "Type": 1,
+      "PosX": 4,
+      "PosY": 1
+
+    },
+    {
+      "Type": 1,
+      "PosX": 4,
+      "PosY": 3
+    },
+
+
+    {
+      "Type": 1,
+      "PosX": 11,
+      "PosY": 1,
+      "CharRepresentation": "▀"
+    },
+
+    {
+      "Type": 1,
+      "PosX": 12,
+      "PosY": 1
+    },
+
+    {
+      "Type": 1,
+      "PosX": 13,
+      "PosY": 1,
+      "CharRepresentation": "▀"
+    },
+
+    {
+      "Type": 1,
+      "PosX": 14,
+      "PosY": 1,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 15,
+      "PosY": 1,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 16,
+      "PosY": 1,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 17,
+      "PosY": 1,
+      "CharRepresentation": "▀"
+
+    },
+
+    {
+      "Type": 1,
+      "PosX": 17,
+      "PosY": 3
+    },
+
+    {
+      "Type": 1,
+      "PosX": 17,
+      "PosY": 4
+    },
+
+    {
+      "Type": 1,
+      "PosX": 17,
+      "PosY": 6
+    },
+
+
+
+
+    {
+      "Type": 1,
+      "PosX": 1,
+      "PosY": 4,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 2,
+      "PosY": 4,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
       "PosX": 3,
-      "PosY": 0
+      "PosY": 4,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 4,
+      "PosY": 4
+
+    },
+    {
+      "Type": 1,
+      "PosX": 1,
+      "PosY": 5,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 2,
+      "PosY": 5,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 3,
+      "PosY": 5,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 4,
+      "PosY": 5
+
+    },
+    {
+      "Type": 1,
+      "PosX": 1,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+
+      "PosX": 2,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 3,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
     },
     {
       "Type": 1,
       "Color": 3,
       "PosX": 4,
-      "PosY": 0
-    },    
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 5,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 6,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 7,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 8,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 9,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 10,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 11,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 12,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 13,
-      "PosY": 0
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 0
+      "PosY": 6
+
+
     },
 
     {
       "Type": 1,
       "Color": 3,
-      "PosX": 0,
-      "PosY": 9
+      "PosX": 11,
+      "PosY": 6,
+      "CharRepresentation": "█"
+    },
+
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 11,
+      "PosY": 5,
+      "CharRepresentation": "█"
     },
     {
       "Type": 1,
       "Color": 3,
+      "PosX": 8,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 7,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 9,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 10,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 5,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 7,
+      "PosX": 10,
+      "PosY": 6,
+      "CharRepresentation": "▯"
+    },
+
+    {
+      "Type": 1,
+      "Color": 7,
+      "PosX": 6,
+      "PosY": 6,
+      "CharRepresentation": "▃"
+    },
+
+    {
+      "Type": 1,
+      "Color": 7,
+      "PosX": 8,
+      "PosY": 6,
+      "CharRepresentation": "▃"
+    },
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 18,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 19,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 20,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 21,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 22,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 23,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 24,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 25,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 26,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 27,
+      "PosY": 3,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 28,
+      "PosY": 3,
+      "CharRepresentation": "█"
+    },
+
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 25,
+      "PosY": 2,
+      "CharRepresentation": "█"
+    },
+
+
+
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 31,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 32,
+      "PosY": 5,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 33,
+      "PosY": 5,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 30,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 29,
+      "PosY": 5,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 28,
+      "PosY": 5,
+      "CharRepresentation": "█"
+    },
+    {
+      "Type": 1,
+      "Color": 3,
+      "PosX": 28,
+      "PosY": 4,
+      "CharRepresentation": "█"
+    },
+
+
+    {
+      "Type": 1,
+      "PosX": 31,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 32,
+      "PosY":6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 33,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 30,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 29,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 28,
+      "PosY": 6
+    },
+
+
+
+
+    {
+      "Type": 1,
+      "PosX": 31,
+      "PosY": 4
+    },
+    {
+      "Type": 1,
+      "PosX": 32,
+      "PosY": 4,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 33,
+      "PosY": 4,
+      "CharRepresentation": "⠀"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "Type": 1,
+      "Color": 7,
+      "PosX": 34,
+      "PosY": 2,
+      "CharRepresentation": "║"
+    },
+    {
+      "Type": 1,
+      "Color": 7,
+      "PosX": 33,
+      "PosY": 2,
+      "CharRepresentation": "║"
+    },
+    {
+      "Type": 1,
+      "PosX": 33,
+      "PosY": 1,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 33,
+      "PosY": 3,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 32,
+      "PosY": 1
+    },
+    {
+      "Type": 1,
+
+      "PosX": 32,
+      "PosY": 3
+    },
+
+
+
+
+    {
+      "Type": 1,
+      "PosX": 0,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
       "PosX": 1,
-      "PosY": 9
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 2,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 3,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 4,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 5,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 6,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 7,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 8,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 9,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 10,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 11,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "▄"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 12,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "⠀"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 13,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "⠀"
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 14,
-      "PosY": 9
-
+      "PosY": 0,
+      "CharRepresentation": "⠀"
     },
     {
       "Type": 1,
-      "Color": 3,
+      "PosX": 15,
+      "PosY": 0,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 16,
+      "PosY": 0,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 17,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 18,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 19,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 20,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 21,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 22,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 23,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 24,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 25,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 26,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 27,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 28,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 29,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 30,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 31,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 32,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+    },
+    {
+      "Type": 1,
+      "PosX": 33,
+      "PosY": 0,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 0,
+      "CharRepresentation": "⠀"
+    },
+
+
+
+
+
+
+
+
+    {
+      "Type": 1,
       "PosX": 0,
       "PosY": 1
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 0,
       "PosY": 2
     },
     {
       "Type": 1,
-      "Color": 3,
       "PosX": 0,
       "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 0,
-      "PosY": 4
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 0,
-      "PosY": 5
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 0,
-      "PosY": 6
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 0,
-      "PosY": 7
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 0,
-      "PosY": 8
-    },
- 
 
 
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 1
     },
     {
       "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 2
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 3
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 4
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 5
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 6
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 7
-    },
-    {
-      "Type": 1,
-      "Color": 3,
-      "PosX": 14,
-      "PosY": 8
-    },
-    {
-      "Type": 1,
-      "Color": 3,
       "PosX": 0,
-      "PosY": 0
+      "PosY": 4,
+      "CharRepresentation": "▀"
+
+    },
+    {
+      "Type": 1,
+      "PosX": 0,
+      "PosY": 5,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 0,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 0,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 0,
+      "PosY": 8,
+      "CharRepresentation": "⠀"
+    },
+
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 1,
+      "CharRepresentation": "⠀"
+    },
+
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 3,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 4,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 5,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 6,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 8,
+      "CharRepresentation": "⠀"
+    },
+
+
+
+
+
+
+
+    {
+      "Type": 1,
+      "PosX": 1,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 2,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 3,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 4,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 5,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 6,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 7,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 8,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 9,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 10,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 11,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 12,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 13,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 14,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 15,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 16,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 17,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 18,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 19,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 20,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 21,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 22,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 23,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 24,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 25,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 26,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 27,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+    },
+    {
+      "Type": 1,
+      "PosX": 28,
+      "PosY": 7,
+      "CharRepresentation": "▀"
+
+    },
+    {
+      "Type": 1,
+      "PosX": 29,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 30,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 31,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 32,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 33,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+    {
+      "Type": 1,
+      "PosX": 34,
+      "PosY": 7,
+      "CharRepresentation": "⠀"
+    },
+
+    {
+      "Type": 1,
+      "PosX": 0,
+      "PosY": 0,
+      "CharRepresentation": "▄"
+
     }
   ]
 }
-  
