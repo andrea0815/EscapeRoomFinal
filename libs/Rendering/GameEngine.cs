@@ -2,7 +2,6 @@
 using System.Text.Json.Nodes;
 using Newtonsoft.Json;
 
-
 namespace libs;
 using libs.Rendering;
 using System.Security.Cryptography;
@@ -17,8 +16,11 @@ public sealed class GameEngine
     private int currentLevelIndex = 0; // Assume the initial level index is 0
     private string[] levelFilePaths = { "level00.json", "level01.json", "level02.json" };
 
-
     private int moveCount;
+     private DateTime startTime;
+     private TimeSpan countdownDuration = TimeSpan.FromMinutes(4);
+     private TimeSpan countdown;
+
     public static GameEngine Instance
     {
         get
@@ -38,7 +40,8 @@ public sealed class GameEngine
         gameStates = new Stack<GameState>();
 
         moveCount = 0;
-
+        startTime = DateTime.Now;
+        countdown = countdownDuration;
     }
 
     private GameObject? _focusedObject;
@@ -356,9 +359,20 @@ public sealed class GameEngine
 
     public void Render()
     {
+        // Check if time is over
+        if (countdown <= TimeSpan.Zero){
+            // Clear the console and display "Time is over"
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Time is over. You did not escape.");
+            return;
+       }
 
         //Clean the map
         Console.Clear();
+
+        // Render timer underneath the map
+        RenderTimer();
 
         map.Initialize();
 
@@ -393,6 +407,34 @@ public sealed class GameEngine
         // Dialog Box
         dialogBox.Show(dialogMessage);
 
+    }
+
+    private void RenderTimer()
+    {
+        // Calculate remaining time
+        TimeSpan elapsed = DateTime.Now - startTime;
+        countdown = countdownDuration - elapsed;
+
+        // Determine text color based on remaining time
+        ConsoleColor textColor;
+        if (countdown.TotalSeconds > 120) // More than 2 minutes left text is green
+        {
+            textColor = ConsoleColor.Green;
+        }
+        else if (countdown.TotalSeconds > 60) // More than 1 minute left text is yellow
+        {
+            textColor = ConsoleColor.Yellow;
+        }
+        else // Less than 1 minute left text is red
+        {
+            textColor = ConsoleColor.Red;
+        }
+
+        // Display remaining time on the same line, overwriting previous content
+        Console.SetCursorPosition(0, map.MapHeight + 1); // Adjust vertical position as needed
+        Console.ForegroundColor = textColor;
+        Console.Write($"Time left: {countdown:mm\\:ss}".PadRight(Console.WindowWidth));
+        Console.ResetColor(); // Reset text color
     }
 
 
