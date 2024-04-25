@@ -13,15 +13,17 @@ public sealed class GameEngine
 {
     private static GameEngine? _instance;
     private IGameObjectFactory gameObjectFactory;
-            private Stack<GameState> gameStates;
+    private Stack<GameState> gameStates;
     private int currentLevelIndex = 0; // Assume the initial level index is 0
     private string[] levelFilePaths = { "level00.json", "level01.json", "level02.json" };
 
 
-private int moveCount;
-    public static GameEngine Instance {
-        get{
-            if(_instance == null)
+    private int moveCount;
+    public static GameEngine Instance
+    {
+        get
+        {
+            if (_instance == null)
             {
                 _instance = new GameEngine();
             }
@@ -29,18 +31,23 @@ private int moveCount;
         }
     }
 
-    private GameEngine() {
+    private GameEngine()
+    {
         //INIT PROPS HERE IF NEEDED
         gameObjectFactory = new GameObjectFactory();
-                    gameStates = new Stack<GameState>();
+        gameStates = new Stack<GameState>();
 
-                moveCount = 0;
+        moveCount = 0;
 
     }
 
     private GameObject? _focusedObject;
 
     private Map map = new Map();
+
+    private DialogBox dialogBox = new DialogBox();
+    string dialogMessage = "Hello, this is a test message in the dialog box! You can update this text dynamically based on user inputs or game state.";
+        
 
     private List<GameObject> gameObjects = new List<GameObject>();
 
@@ -50,14 +57,14 @@ private int moveCount;
         var goals = gameObjects.OfType<Goal>().Select((g, index) => new { Goal = g, Index = index }).ToList();
 
         var gameState = new
-    {
-        MapWidth = map.MapWidth,
-        MapHeight = map.MapHeight,
-        Player = new { X = GetPlayerObject().PosX, Y = GetPlayerObject().PosY },
-        Boxes = boxes.Select(b => new { Color = b.Index == 0 ? 7 : 6, X = b.Box.PosX, Y = b.Box.PosY}).ToList(),
-        Goals = goals.Select(g => new { Color = g.Index == 0 ? 7 : 6, X = g.Goal.PosX, Y = g.Goal.PosY}).ToList(),
-        Obstacles = gameObjects.OfType<Obstacle>().Select(o => new { X = o.PosX, Y = o.PosY }).ToList()
-    };
+        {
+            MapWidth = map.MapWidth,
+            MapHeight = map.MapHeight,
+            Player = new { X = GetPlayerObject().PosX, Y = GetPlayerObject().PosY },
+            Boxes = boxes.Select(b => new { Color = b.Index == 0 ? 7 : 6, X = b.Box.PosX, Y = b.Box.PosY }).ToList(),
+            Goals = goals.Select(g => new { Color = g.Index == 0 ? 7 : 6, X = g.Goal.PosX, Y = g.Goal.PosY }).ToList(),
+            Obstacles = gameObjects.OfType<Obstacle>().Select(o => new { X = o.PosX, Y = o.PosY }).ToList()
+        };
 
         string json = JsonConvert.SerializeObject(gameState, Formatting.Indented);
         File.WriteAllText(filePath, json);
@@ -77,12 +84,12 @@ private int moveCount;
 
         foreach (var box in gameState.Boxes)
         {
-            AddGameObject(new Box { PosX = box.X, PosY = box.Y, Color = box.Color});
+            AddGameObject(new Box { PosX = box.X, PosY = box.Y, Color = box.Color });
         }
 
         foreach (var goal in gameState.Goals) // Ensure Goals are reconstructed
         {
-            AddGameObject(new Goal { PosX = goal.X, PosY = goal.Y, Color = goal.Color});
+            AddGameObject(new Goal { PosX = goal.X, PosY = goal.Y, Color = goal.Color });
         }
 
         foreach (var obstacle in gameState.Obstacles)
@@ -94,147 +101,175 @@ private int moveCount;
         _focusedObject = gameObjects.OfType<Player>().First();
     }
 
-    public Map GetMap() {
+    public Map GetMap()
+    {
         return map;
     }
 
-    public GameObject? GetFocusedObject(){
+    public GameObject? GetFocusedObject()
+    {
         return _focusedObject;
     }
 
-public GameObject GetBox(){
-    foreach (var gameObject in gameObjects)
+    public GameObject GetBox()
     {
-        if(gameObject is Box){
-            return gameObject;
-        }
-    }
-     return null;
-}
-public GameObject GetBoxObject(int boxNumber){
-    int count = 0;
-    foreach (var gameObject in gameObjects)
-    {
-        if(gameObject is Box){
-            count++;
-            if(count == boxNumber){
+        foreach (var gameObject in gameObjects)
+        {
+            if (gameObject is Box)
+            {
                 return gameObject;
             }
         }
+        return null;
     }
-    return null;
-}
+    public GameObject GetBoxObject(int boxNumber)
+    {
+        int count = 0;
+        foreach (var gameObject in gameObjects)
+        {
+            if (gameObject is Box)
+            {
+                count++;
+                if (count == boxNumber)
+                {
+                    return gameObject;
+                }
+            }
+        }
+        return null;
+    }
 
-public List<GameObject> GetBoxObjects(){
+    public List<GameObject> GetBoxObjects()
+    {
         List<GameObject> boxObjects = new List<GameObject>();
 
-        foreach (var gameObject in gameObjects){
-            if (gameObject is Box){
+        foreach (var gameObject in gameObjects)
+        {
+            if (gameObject is Box)
+            {
                 boxObjects.Add(gameObject);
             }
         }
 
         return boxObjects;
-}
-
-public Player GetPlayerObject(){
-    foreach (var gameObject in gameObjects)
-    {
-        if(gameObject is Player){
-            return (Player)gameObject;
-        }
     }
-     return null;
-}
-public GameObject GetGoalObject(int goalNumber){
-    int count = 0;
-    foreach (var gameObject in gameObjects)
+
+    public Player GetPlayerObject()
     {
-        if(gameObject is Goal){
-            count++;
-            if(count == goalNumber){
+        foreach (var gameObject in gameObjects)
+        {
+            if (gameObject is Player)
+            {
+                return (Player)gameObject;
+            }
+        }
+        return null;
+    }
+    public GameObject GetGoalObject(int goalNumber)
+    {
+        int count = 0;
+        foreach (var gameObject in gameObjects)
+        {
+            if (gameObject is Goal)
+            {
+                count++;
+                if (count == goalNumber)
+                {
+                    return gameObject;
+                }
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetWallObject()
+    {
+        foreach (var gameObject in gameObjects)
+        {
+            if (gameObject is Obstacle)
+            {
                 return gameObject;
             }
         }
+        return null;
     }
-    return null;
-}
 
-public GameObject GetWallObject(){
-    foreach (var gameObject in gameObjects)
+    public void CanMoveBox(GameObject wall, GameObject player, GameObject box, Direction playerdirection)
     {
-        if(gameObject is Obstacle){
-            return gameObject;
-        }
-    }
-     return null;
-}
+        GameObject playerObj = GetPlayerObject();
+        GameObject boxObj = GetBox();
 
-public void CanMoveBox(GameObject wall, GameObject player, GameObject box, Direction playerdirection)
-{
-    GameObject playerObj = GetPlayerObject();
-    GameObject boxObj = GetBox();
-
-   foreach (GameObject obj in gameObjects){
-         if(obj is Obstacle){
-            wall = obj;
-             switch (playerdirection)
+        foreach (GameObject obj in gameObjects)
+        {
+            if (obj is Obstacle)
+            {
+                wall = obj;
+                switch (playerdirection)
                 {
                     case Direction.Up:
-                       if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosY++;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosY++;
-                           boxObj.PosY++;
-                       }
+                        if (playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosY++;
+                        }
+                        else if (boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosY++;
+                            boxObj.PosY++;
+                        }
                         break;
                     case Direction.Down:
-                        if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosY--;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosY--;
-                           boxObj.PosY--;
-                       }
+                        if (playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosY--;
+                        }
+                        else if (boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosY--;
+                            boxObj.PosY--;
+                        }
                         break;
                     case Direction.Left:
 
-                        if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosX++;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosX++;
-                           boxObj.PosX++;
-                       }
+                        if (playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosX++;
+                        }
+                        else if (boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosX++;
+                            boxObj.PosX++;
+                        }
                         break;
                     case Direction.Right:
-                        if(playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY){
-                           playerObj.PosX--;
-                       }
-                       else if(boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY){
-                           playerObj.PosX--;
-                           boxObj.PosX--;
-                       }
+                        if (playerObj.PosX == wall.PosX && playerObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosX--;
+                        }
+                        else if (boxObj.PosX == wall.PosX && boxObj.PosY == wall.PosY)
+                        {
+                            playerObj.PosX--;
+                            boxObj.PosX--;
+                        }
                         break;
-                        default:
-                            break;
-                       }
-                       }
-                       }
-                       
-                       }
+                    default:
+                        break;
+                }
+            }
+        }
+
+    }
 
 
 
 
-    public void Setup(){
+    public void Setup()
+    {
 
         //Added for proper display of game characters
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         dynamic gameData = FileHandler.ReadJson();
-        
+
         map.MapWidth = gameData.map.width;
         map.MapHeight = gameData.map.height;
 
@@ -242,7 +277,7 @@ public void CanMoveBox(GameObject wall, GameObject player, GameObject box, Direc
         {
             AddGameObject(CreateGameObject(gameObject));
         }
-        
+
         _focusedObject = gameObjects.OfType<Player>().First();
 
     }
@@ -272,59 +307,56 @@ public void CanMoveBox(GameObject wall, GameObject player, GameObject box, Direc
         _focusedObject = gameObjects.OfType<Player>().FirstOrDefault();
     }
 
- public bool finishLevel(GameObject box1, GameObject box2, GameObject goal1, GameObject goal2)
-{
+    public bool finishLevel(GameObject box1, GameObject box2, GameObject goal1, GameObject goal2)
+    {
 
-    // Check if either the box or goal is null before attempting to access their properties
-        if (box1 == null || box2 == null)
+        // Check if either the box or goal is null before attempting to access their properties
+        if (box1 == null)
         {
             Console.WriteLine("Error: The box object is null.");
             return false; // Return false to indicate that the level cannot be finished due to error
         }
-        if (goal1 == null || goal2 == null)	
+        if (goal1 == null)
         {
             Console.WriteLine("Error: The goal object is null.");
             return false; // Return false to indicate that the level cannot be finished due to error
         }
 
-    bool boxOnGoal1 = (box1.PosX == goal1.PosX && box1.PosY == goal1.PosY);
-    bool boxOnGoal2 = (box2.PosX == goal2.PosX && box2.PosY == goal2.PosY);
+        bool boxOnGoal1 = (box1.PosX == goal1.PosX && box1.PosY == goal1.PosY);
+        //bool boxOnGoal2 = (box2.PosX == goal2.PosX && box2.PosY == goal2.PosY);
 
-    // Check if the box is on the goal
-    if (boxOnGoal1 && boxOnGoal2)
-    {
-
-        // Increment the current level index
-        currentLevelIndex++;
-
-        // Check if there are more levels to load
-        if (currentLevelIndex < levelFilePaths.Length)
+        // Check if the box is on the goal
+        if (boxOnGoal1)//&& boxOnGoal2
         {
-            string nextLevelFilePath = Path.Combine("..", "libs", "levels", levelFilePaths[currentLevelIndex]);
-            Console.WriteLine($"Loading next level: {nextLevelFilePath}");
-            // Load the next level
-           LoadLevel(nextLevelFilePath);
 
+            // Increment the current level index
+            currentLevelIndex++;
+
+            // Check if there are more levels to load
+            if (currentLevelIndex < levelFilePaths.Length)
+            {
+                string nextLevelFilePath = Path.Combine("..", "libs", "levels", levelFilePaths[currentLevelIndex]);
+                Console.WriteLine($"Loading next level: {nextLevelFilePath}");
+                // Load the next level
+                LoadLevel(nextLevelFilePath);
+
+            }
+            else
+            {
+                Console.WriteLine("All levels completed!");
+            }
+
+            return true;
         }
         else
         {
-            Console.WriteLine("All levels completed!");
+            return false;
         }
-
-        return true;
     }
-    else
+
+    public void Render()
     {
-        return false;
-    }
-}
 
-
-
- 
-
-    public void Render() {
-        
         //Clean the map
         Console.Clear();
 
@@ -336,127 +368,141 @@ public void CanMoveBox(GameObject wall, GameObject player, GameObject box, Direc
         GameObject goal1 = GetGoalObject(1);
         GameObject goal2 = GetGoalObject(2);
         GameObject player = GetPlayerObject();
-      
+
+
+        // Logic for winning
         if (finishLevel(box1, box2, goal1, goal2))
         {
-            
             //Render the map
-                Console.WriteLine("Level finished!");
+            Console.WriteLine("Level finished!");
+        }
+        else
+        {
+            //Render the map
+            for (int i = 0; i < map.MapHeight; i++)
+            {
+                for (int j = 0; j < map.MapWidth; j++)
+                {
+                    DrawObject(map.Get(i, j));
+                }
+                Console.WriteLine();
+            }
 
         }
-      else {
-         //Render the map
-        for (int i = 0; i < map.MapHeight; i++)
-        {
-            for (int j = 0; j < map.MapWidth; j++)
-            {
-                DrawObject(map.Get(i, j));
-            }
-            Console.WriteLine();
-        }
-    
+
+        // Dialog Box
+        dialogBox.Show(dialogMessage);
+
     }
-    }
-    
-    
+
+
     // Method to create GameObject using the factory from clients
     public GameObject CreateGameObject(dynamic obj)
     {
         return gameObjectFactory.CreateGameObject(obj);
     }
 
-    public void AddGameObject(GameObject gameObject){
+    public void AddGameObject(GameObject gameObject)
+    {
         gameObjects.Add(gameObject);
     }
 
-    private void PlaceGameObjects(){
-        
-        gameObjects.ForEach(delegate(GameObject obj)
+    private void PlaceGameObjects()
+    {
+
+        gameObjects.ForEach(delegate (GameObject obj)
         {
             map.Set(obj);
         });
     }
 
-    private void DrawObject(GameObject gameObject){
-        
+    private void DrawObject(GameObject gameObject)
+    {
+
         Console.ResetColor();
 
-        if(gameObject != null)
+        if (gameObject != null)
         {
             Console.ForegroundColor = gameObject.Color;
             Console.Write(gameObject.CharRepresentation);
         }
-        else{
+        else
+        {
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write(' ');
         }
     }
-  
- public void AddMoveCount()
+
+    public void AddMoveCount()
     {
         moveCount++;
-        
+
     }
 
-public bool CanMove(GameObject player, GameObject box, int dx, int dy)
-{
-    int newPosX = player.PosX + dx;
-    int newPosY = player.PosY + dy;
-
-    int newBoxPosX = box.PosX + dx;
-    int newBoxPosY = box.PosY + dy;
-
-    if (newPosX < 0 || newPosX >= map.MapWidth || newPosY < 0 || newPosY >= map.MapHeight || newBoxPosX < 0 || newBoxPosX >= map.MapWidth || newBoxPosY < 0 || newBoxPosY >= map.MapHeight)
+    public bool CanMove(GameObject player, GameObject box, int dx, int dy)
     {
-        Console.WriteLine("Out of bounds");
-        return false;
+        int newPosX = player.PosX + dx;
+        int newPosY = player.PosY + dy;
+
+        int newBoxPosX = box.PosX + dx;
+        int newBoxPosY = box.PosY + dy;
+
+        if (newPosX < 0 || newPosX >= map.MapWidth || newPosY < 0 || newPosY >= map.MapHeight || newBoxPosX < 0 || newBoxPosX >= map.MapWidth || newBoxPosY < 0 || newBoxPosY >= map.MapHeight)
+        {
+            Console.WriteLine("Out of bounds");
+            return false;
+        }
+
+        GameObject gameObject = map.Get(newPosY, newPosX);
+
+        if (gameObject is Obstacle)
+        {
+            Console.WriteLine("Obstacle or wall");
+            return false;
+        }
+
+        GameState currentState = new GameState(GetBoxObjects(), GetPlayerObject());
+        gameStates.Push(currentState);
+        return true;
     }
 
-    GameObject gameObject = map.Get(newPosY, newPosX);
 
-    if (gameObject is Obstacle )
+
+    public void UndoMove(Player player, List<GameObject> boxObjects)
     {
-        Console.WriteLine("Obstacle or wall");
-        return false;
-    }
+        if (moveCount > 0)
+        {
+            // Decrement move count
+            moveCount--;
+            Console.WriteLine("Move count: " + moveCount);
 
- GameState currentState = new GameState(GetBoxObjects(), GetPlayerObject());
-            gameStates.Push(currentState);
-    return true;
-}
- 
-  
-        
-     public void UndoMove(Player player, List<GameObject> boxObjects) {
-    if (moveCount > 0) {
-        // Decrement move count
-        moveCount--;
-        Console.WriteLine("Move count: " + moveCount);
-        
-        // Restore previous game state from the stack
-        if (gameStates.Count > 0) {
-            GameState previousState = gameStates.Pop();
-            
-            // Restore player position
-            player.PosX = previousState.Player.PosX;
-            player.PosY = previousState.Player.PosY;
-            
-            // Restore box positions
-            for (int i = 0; i < boxObjects.Count; i++) {
-                boxObjects[i].PosX = previousState.BoxObjects[i].PosX;
-                boxObjects[i].PosY = previousState.BoxObjects[i].PosY;
+            // Restore previous game state from the stack
+            if (gameStates.Count > 0)
+            {
+                GameState previousState = gameStates.Pop();
+
+                // Restore player position
+                player.PosX = previousState.Player.PosX;
+                player.PosY = previousState.Player.PosY;
+
+                // Restore box positions
+                for (int i = 0; i < boxObjects.Count; i++)
+                {
+                    boxObjects[i].PosX = previousState.BoxObjects[i].PosX;
+                    boxObjects[i].PosY = previousState.BoxObjects[i].PosY;
+                }
+
+                // Render the game with the restored state
+                Render();
             }
-            
-            // Render the game with the restored state
-            Render();
-        } else {
-            Console.WriteLine("No moves to undo");
+            else
+            {
+                Console.WriteLine("No moves to undo");
+            }
         }
     }
+
+
+
 }
 
-
-        
-}
-
-                
