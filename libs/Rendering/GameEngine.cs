@@ -411,31 +411,40 @@ public sealed class GameEngine
 
     private void RenderTimer()
     {
-        // Calculate remaining time
-        TimeSpan elapsed = DateTime.Now - startTime;
-        countdown = countdownDuration - elapsed;
+        try
+        {
+            // Calculate remaining time
+            TimeSpan elapsed = DateTime.Now - startTime;
+            countdown = countdownDuration - elapsed;
 
-        // Determine text color based on remaining time
-        ConsoleColor textColor;
-        if (countdown.TotalSeconds > 120) // More than 2 minutes left text is green
-        {
-            textColor = ConsoleColor.Green;
-        }
-        else if (countdown.TotalSeconds > 60) // More than 1 minute left text is yellow
-        {
-            textColor = ConsoleColor.Yellow;
-        }
-        else // Less than 1 minute left text is red
-        {
-            textColor = ConsoleColor.Red;
-        }
+            // Determine text color based on remaining time
+            ConsoleColor textColor;
+            if (countdown.TotalSeconds > 120) // More than 2 minutes left text is green
+            {
+                textColor = ConsoleColor.Green;
+            }
+            else if (countdown.TotalSeconds > 60) // More than 1 minute left text is yellow
+            {
+                textColor = ConsoleColor.Yellow;
+            }
+            else // Less than 1 minute left text is red
+            {
+                textColor = ConsoleColor.Red;
+            }
 
-        // Display remaining time on the same line, overwriting previous content
-        Console.SetCursorPosition(0, map.MapHeight + 1); // Adjust vertical position as needed
-        Console.ForegroundColor = textColor;
-        Console.Write($"Time left: {countdown:mm\\:ss}".PadRight(Console.WindowWidth));
-        Console.ResetColor(); // Reset text color
+            // Display remaining time on the same line, overwriting previous content
+            Console.SetCursorPosition(0, map.MapHeight + 1); // Adjust vertical position as needed
+            Console.ForegroundColor = textColor;
+            Console.Write($"Time left: {countdown:mm\\:ss}".PadRight(Console.WindowWidth));
+            Console.ResetColor(); // Reset text color
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            // Handle the exception gracefully, for example by skipping the timer rendering
+            Console.WriteLine("Error: Cannot render timer, please enlarge the console window.");
+        }
     }
+
 
 
     // Method to create GameObject using the factory from clients
