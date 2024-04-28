@@ -40,21 +40,25 @@ public sealed class InputHandler{
             {
                 case ConsoleKey.UpArrow:
                     dy = -1;
+                    ((Player)focusedObject).SetFacingDirection(Direction.Up);
                     focusedObject.CheckBoxCollision(boxes, player, Direction.Up, dx, dy);
                     engine.CanMoveBox(wall, player, box, Direction.Up);
                     break;
                 case ConsoleKey.DownArrow:
                     dy = 1;
+                    ((Player)focusedObject).SetFacingDirection(Direction.Down);
                     focusedObject.CheckBoxCollision(boxes, player, Direction.Down, dx, dy);
                     engine.CanMoveBox(wall, player, box, Direction.Down);
                     break;
                 case ConsoleKey.LeftArrow:
                     dx = -1;
+                    ((Player)focusedObject).SetFacingDirection(Direction.Left);
                     focusedObject.CheckBoxCollision(boxes, player, Direction.Left,    dx, dy);
                     engine.CanMoveBox(wall, player, box, Direction.Left);
                     break;
                 case ConsoleKey.RightArrow:
                     dx = 1;
+                     ((Player)focusedObject).SetFacingDirection(Direction.Right);
                     focusedObject.CheckBoxCollision(boxes, player, Direction.Right, dx, dy);
                     engine.CanMoveBox(wall, player, box, Direction.Right);
                     break;
