@@ -198,45 +198,6 @@ public sealed class GameEngine
         return null;
     }
 
-// public void CheckCollisionWithAllBoxes (GameObject player, Direction playerDirection){
-//
-//
-//      foreach (GameObject boxObject1 in gameObjects.Where(obj => obj.Type == GameObjectType.Box)){
-//   GameObject playerObject = GetPlayerObject();
-//        switch (playerDirection)
-//                {
-//                    case Direction.Up:
-//                       foreach (GameObject boxObject2 in gameObjects.Where(obj => obj.Type == GameObjectType.Box)){
-//                        if (boxObject1.PosX == boxObject2.PosX && boxObject1.PosY == boxObject2.PosY && playerObject.PosX +1 == boxObject1.PosX ) {
-//                         {
-//
-//                                                                              playerObject.PosY++;
-//                                                          }
-//                     }
-//
-//                       }
-//
-//                        break;
-//                    case Direction.Down:
-//
-//                        break;
-//                    case Direction.Left:
-//
-//                        break;
-//                    case Direction.Right:
-//
-//                        break;
-//                    default:
-//                        break;
-//
-//
-//
-//
-// }
-//
-// }
-//
-// }
 
 
 public void CheckWallCollision(GameObject player, Direction playerDirection)

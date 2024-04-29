@@ -140,4 +140,76 @@ public class GameObject : IGameObject, IMovement
             }
         }
     }
+
+  public void CheckCollisionWithAllBoxes(List<GameObject> boxes, GameObject player, Direction playerDirection, int dx, int dy)
+  {
+      // Calculate the new position of the player based on the movement direction
+      int newPlayerPosX = player.PosX + dx;
+      int newPlayerPosY = player.PosY + dy;
+
+      // Calculate the new position of the pushed box based on the movement direction
+      int newBoxPosX = newPlayerPosX;
+      int newBoxPosY = newPlayerPosY;
+
+      // Check if there's a box at the new position after player's movement
+      GameObject boxToPush = boxes.FirstOrDefault(box => box.PosX == newBoxPosX && box.PosY == newBoxPosY);
+
+      // If there's no box to push, exit the method
+      if (boxToPush == null)
+      {
+          return;
+      }
+
+      // Calculate the new position of the pushed box based on the player's movement direction
+      switch (playerDirection)
+      {
+          case Direction.Up:
+              newBoxPosY--;
+              break;
+          case Direction.Down:
+              newBoxPosY++;
+              break;
+          case Direction.Left:
+              newBoxPosX--;
+              break;
+          case Direction.Right:
+              newBoxPosX++;
+              break;
+          default:
+              break;
+      }
+
+      // Check if the new position of the pushed box collides with another box
+      bool isCollisionWithOtherBox = boxes.Any(box => box != boxToPush && box.PosX == newBoxPosX && box.PosY == newBoxPosY);
+
+      // Check if the new position of the pushed box is empty
+      bool isBoxDestinationEmpty = boxes.All(box => box != boxToPush || (box.PosX != newBoxPosX && box.PosY != newBoxPosY));
+
+      // If there's a collision with another box or the box destination is not empty, reverse the player's movement
+      if (isCollisionWithOtherBox || !isBoxDestinationEmpty)
+      {
+          switch (playerDirection)
+          {
+              case Direction.Up:
+                  player.Move(0, 1);
+                  break;
+              case Direction.Down:
+                  player.Move(0, -1);
+                  break;
+              case Direction.Left:
+                  player.Move(1, 0);
+                  break;
+              case Direction.Right:
+                  player.Move(-1, 0);
+                  break;
+              default:
+                  break;
+          }
+          return;
+      }
+
+      // Update the position of the pushed box
+      boxToPush.PosX = newBoxPosX;
+      boxToPush.PosY = newBoxPosY;
+  }
 }
