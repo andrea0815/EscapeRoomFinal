@@ -451,6 +451,7 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
 
 
 
+
     // Method to create GameObject using the factory from clients
     public GameObject CreateGameObject(dynamic obj)
     {
