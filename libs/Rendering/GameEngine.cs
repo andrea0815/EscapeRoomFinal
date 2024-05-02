@@ -458,8 +458,7 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
         return gameObjectFactory.CreateGameObject(obj);
     }
 
-    public void AddGameObject(GameObject gameObject)
-    {
+    public void AddGameObject(GameObject gameObject){
         gameObjects.Add(gameObject);
     }
 
