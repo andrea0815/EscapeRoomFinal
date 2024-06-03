@@ -55,55 +55,62 @@ public sealed class GameEngine
 
     private List<GameObject> gameObjects = new List<GameObject>();
 
-    public void SaveGame(string filePath)
-    {
-        var boxes = gameObjects.OfType<Box>().Select((b, index) => new { Box = b, Index = index }).ToList();
-        var goals = gameObjects.OfType<Goal>().Select((g, index) => new { Goal = g, Index = index }).ToList();
+  public void SaveGame(string filePath)
+  {
+      var boxes = gameObjects.OfType<Box>().Select((b, index) => new { Box = b, Index = index }).ToList();
+      var goals = gameObjects.OfType<Goal>().Select((g, index) => new { Goal = g, Index = index }).ToList();
+      var keys = gameObjects.OfType<Key>().Select((k, index) => new { Key = k, Index = index }).ToList();
 
-        var gameState = new
-        {
-            MapWidth = map.MapWidth,
-            MapHeight = map.MapHeight,
-            Player = new { X = GetPlayerObject().PosX, Y = GetPlayerObject().PosY },
-            Boxes = boxes.Select(b => new { Color = b.Index == 0 ? 7 : 6, X = b.Box.PosX, Y = b.Box.PosY }).ToList(),
-            Goals = goals.Select(g => new { Color = g.Index == 0 ? 7 : 6, X = g.Goal.PosX, Y = g.Goal.PosY }).ToList(),
-            Obstacles = gameObjects.OfType<Obstacle>().Select(o => new { X = o.PosX, Y = o.PosY }).ToList()
-        };
+      var gameState = new
+      {
+          MapWidth = map.MapWidth,
+          MapHeight = map.MapHeight,
+          Player = new { X = GetPlayerObject().PosX, Y = GetPlayerObject().PosY },
+          Boxes = boxes.Select(b => new { Color = b.Index == 0 ? 7 : 6, X = b.Box.PosX, Y = b.Box.PosY }).ToList(),
+          Goals = goals.Select(g => new { Color = g.Index == 0 ? 7 : 6, X = g.Goal.PosX, Y = g.Goal.PosY }).ToList(),
+          Obstacles = gameObjects.OfType<Obstacle>().Select(o => new { X = o.PosX, Y = o.PosY }).ToList(),
+          Keys = keys.Select(k => new { Color = k.Index == 0 ? 7 : 6, X = k.Key.PosX, Y = k.Key.PosY }).ToList()
+      };
 
-        string json = JsonConvert.SerializeObject(gameState, Formatting.Indented);
-        File.WriteAllText(filePath, json);
-    }
+      string json = JsonConvert.SerializeObject(gameState, Formatting.Indented);
+      File.WriteAllText(filePath, json);
+  }
 
-    public void LoadGame(string filePath)
-    {
-        string json = File.ReadAllText(filePath);
-        dynamic gameState = JsonConvert.DeserializeObject<dynamic>(json);
+   public void LoadGame(string filePath)
+   {
+       string json = File.ReadAllText(filePath);
+       dynamic gameState = JsonConvert.DeserializeObject<dynamic>(json);
 
-        map.MapWidth = gameState.MapWidth;
-        map.MapHeight = gameState.MapHeight;
-        // map.Initialize()
+       map.MapWidth = gameState.MapWidth;
+       map.MapHeight = gameState.MapHeight;
+       // map.Initialize()
 
-        gameObjects.Clear(); // Clear existing game objects
-        AddGameObject(new Player { PosX = gameState.Player.X, PosY = gameState.Player.Y });
+       gameObjects.Clear(); // Clear existing game objects
+       AddGameObject(new Player { PosX = gameState.Player.X, PosY = gameState.Player.Y });
 
-        foreach (var box in gameState.Boxes)
-        {
-            AddGameObject(new Box { PosX = box.X, PosY = box.Y, Color = box.Color });
-        }
+       foreach (var box in gameState.Boxes)
+       {
+           AddGameObject(new Box { PosX = box.X, PosY = box.Y, Color = box.Color });
+       }
 
-        foreach (var goal in gameState.Goals) // Ensure Goals are reconstructed
-        {
-            AddGameObject(new Goal { PosX = goal.X, PosY = goal.Y, Color = goal.Color });
-        }
+       foreach (var goal in gameState.Goals) // Ensure Goals are reconstructed
+       {
+           AddGameObject(new Goal { PosX = goal.X, PosY = goal.Y, Color = goal.Color });
+       }
 
-        foreach (var obstacle in gameState.Obstacles)
-        {
-            AddGameObject(new Obstacle { PosX = obstacle.X, PosY = obstacle.Y });
-        }
+       foreach (var obstacle in gameState.Obstacles)
+       {
+           AddGameObject(new Obstacle { PosX = obstacle.X, PosY = obstacle.Y });
+       }
 
-        // Optionally reset the focused object and other necessary states
-        _focusedObject = gameObjects.OfType<Player>().First();
-    }
+       foreach (var key in gameState.Keys) // Add this section to handle keys
+       {
+           AddGameObject(new Key { PosX = key.X, PosY = key.Y, Color = key.Color });
+       }
+
+       // Optionally reset the focused object and other necessary states
+       _focusedObject = gameObjects.OfType<Player>().First();
+   }
 
     public Map GetMap()
     {

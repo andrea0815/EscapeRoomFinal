@@ -14,6 +14,8 @@ namespace libs.Rendering
         {
             BoxObjects = boxObjects;
             Player = player;
+
         }
+
     }
 }

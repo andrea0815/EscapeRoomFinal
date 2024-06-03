@@ -32,10 +32,9 @@
       "PosY": 2
     },
     {
-      "Type": 4,
+      "Type": 6,
       "PosX": 7,
-      "PosY": 3,
-      "CharRepresentation": "⚿"
+      "PosY": 3
     },
     {
       "Type": 1,

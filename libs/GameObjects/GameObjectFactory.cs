@@ -21,6 +21,15 @@ public class GameObjectFactory : IGameObjectFactory
             case (int) GameObjectType.Goal:
                 newObj = obj.ToObject<Goal>();
                 break;
+            case (int) GameObjectType.Floor:
+                newObj = obj.ToObject<Floor>();
+                break;
+            case (int) GameObjectType.Trap:
+                newObj = obj.ToObject<Trap>();
+                break;
+            case (int) GameObjectType.Key:
+                newObj = obj.ToObject<Key>();
+                break;
         }
 
         return newObj;
