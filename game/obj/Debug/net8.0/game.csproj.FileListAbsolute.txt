@@ -38,3 +38,23 @@
 /Users/andreawindisch/DATA/BCC/BCC-04Semester/CD C# Development/EscapeRoom/game/obj/Debug/net8.0/game.pdb
 /Users/andreawindisch/DATA/BCC/BCC-04Semester/CD C# Development/EscapeRoom/game/obj/Debug/net8.0/game.genruntimeconfig.cache
 /Users/andreawindisch/DATA/BCC/BCC-04Semester/CD C# Development/EscapeRoom/game/obj/Debug/net8.0/ref/game.dll
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.exe
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.deps.json
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.runtimeconfig.json
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.dll
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\game.pdb
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\libs.dll
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\bin\Debug\net8.0\libs.pdb
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.csproj.AssemblyReference.cache
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.AssemblyInfoInputs.cache
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.AssemblyInfo.cs
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.csproj.CoreCompileInputs.cache
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.sourcelink.json
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.csproj.Up2Date
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.dll
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\refint\game.dll
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.pdb
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\game.genruntimeconfig.cache
+C:\Users\stefa\OneDrive\Dokumente\FH StPoelten BCC\4. Semester\CD\EscapeRoom\EscapeRoom\game\obj\Debug\net8.0\ref\game.dll

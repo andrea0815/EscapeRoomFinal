@@ -5,11 +5,13 @@ public class Player : GameObject {
 
     public Direction FacingDirection { get; private set; }
 
+
     public Player () : base(){
         Type = GameObjectType.Player;
         CharRepresentation = '⯈';
         Color = ConsoleColor.DarkYellow;
         FacingDirection = Direction.Right;
+        HasKey = false;
     }
 
     public static Player GetInstance() {

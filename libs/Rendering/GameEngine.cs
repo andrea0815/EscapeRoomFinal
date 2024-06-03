@@ -198,6 +198,18 @@ public sealed class GameEngine
         return null;
     }
 
+    public GameObject GetKeyObject()
+    {
+        foreach (var gameObject in gameObjects)
+        {
+            if (gameObject is Key)
+            {
+                return gameObject;
+            }
+        }
+        return null;
+    }
+
 
 
 public void CheckWallCollision(GameObject player, Direction playerDirection)
@@ -314,52 +326,52 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
         _focusedObject = gameObjects.OfType<Player>().FirstOrDefault();
     }
 
-    public bool finishLevel(GameObject box1, GameObject box2, GameObject goal1, GameObject goal2)
-    {
-
-        // Check if either the box or goal is null before attempting to access their properties
-        if (box1 == null)
-        {
-            Console.WriteLine("Error: The box object is null.");
-            return false; // Return false to indicate that the level cannot be finished due to error
-        }
-        if (goal1 == null)
-        {
-            Console.WriteLine("Error: The goal object is null.");
-            return false; // Return false to indicate that the level cannot be finished due to error
-        }
-
-        bool boxOnGoal1 = (box1.PosX == goal1.PosX && box1.PosY == goal1.PosY);
-        //bool boxOnGoal2 = (box2.PosX == goal2.PosX && box2.PosY == goal2.PosY);
-
-        // Check if the box is on the goal
-        if (boxOnGoal1)//&& boxOnGoal2
-        {
-
-            // Increment the current level index
-            currentLevelIndex++;
-
-            // Check if there are more levels to load
-            if (currentLevelIndex < levelFilePaths.Length)
+    public bool finishLevel(GameObject goal, GameObject key, GameObject player)
             {
-                string nextLevelFilePath = Path.Combine("..", "libs", "levels", levelFilePaths[currentLevelIndex]);
-                Console.WriteLine($"Loading next level: {nextLevelFilePath}");
-                // Load the next level
-                LoadLevel(nextLevelFilePath);
 
-            }
-            else
-            {
-                Console.WriteLine("All levels completed!");
-            }
+                // Check if player posseses the key
+                if (key == null)
+                {
+                    Console.WriteLine("Error: The key object is null.");
+                    return false; // Return false to indicate that the level cannot be finished due to error
+                }
+                if (goal == null)
+                {
+                    Console.WriteLine("Error: The goal object is null.");
+                    return false; // Return false to indicate that the level cannot be finished due to error
+                }
 
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+
+
+                // Check if the player is on the goal and has the key
+                if (player.PosX == goal.PosX && player.PosY == goal.PosY && player.HasKey)
+                {
+
+                    // Increment the current level index
+                    currentLevelIndex++;
+                    player.HasKey = false;
+
+                    // Check if there are more levels to load
+                    if (currentLevelIndex < levelFilePaths.Length)
+                    {
+                        string nextLevelFilePath = Path.Combine("..", "libs", "levels", levelFilePaths[currentLevelIndex]);
+                        Console.WriteLine($"Loading next level: {nextLevelFilePath}");
+                        // Load the next level
+                        LoadLevel(nextLevelFilePath);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("All levels completed!");
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
     public void Render()
     {
@@ -381,15 +393,13 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
         map.Initialize();
 
         PlaceGameObjects();
-        GameObject box1 = GetBoxObject(1);
-        GameObject box2 = GetBoxObject(2);
-        GameObject goal1 = GetGoalObject(1);
-        GameObject goal2 = GetGoalObject(2);
+        GameObject goal = GetGoalObject(1);
+        GameObject key = GetKeyObject();
         GameObject player = GetPlayerObject();
 
 
         // Logic for winning
-        if (finishLevel(box1, box2, goal1, goal2))
+        if (finishLevel(goal, key, player))
         {
             //Render the map
             Console.WriteLine("Level finished!");
@@ -437,14 +447,13 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
             }
 
             // Display remaining time on the same line, overwriting previous content
-            Console.SetCursorPosition(0, map.MapHeight + 1); // Adjust vertical position as needed
+            Console.SetCursorPosition(0, map.MapHeight + 1); // Adjust vertical position based on map height
             Console.ForegroundColor = textColor;
             Console.Write($"Time left: {countdown:mm\\:ss}".PadRight(Console.WindowWidth));
             Console.ResetColor(); // Reset text color
         }
         catch (ArgumentOutOfRangeException)
         {
-            // Handle the exception gracefully, for example by skipping the timer rendering
             Console.WriteLine("Error: Cannot render timer, please enlarge the console window.");
         }
     }

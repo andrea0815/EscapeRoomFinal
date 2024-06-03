@@ -73,19 +73,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/andreawindisch/.nuget/packages/": {}
+    "C:\\Users\\stefa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/game/game.csproj",
+      "projectUniqueName": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\game\\game.csproj",
       "projectName": "game",
-      "projectPath": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/game/game.csproj",
-      "packagesPath": "/Users/andreawindisch/.nuget/packages/",
-      "outputPath": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/game/obj/",
+      "projectPath": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\game\\game.csproj",
+      "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/andreawindisch/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\stefa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -97,8 +97,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/libs/libs.csproj": {
-              "projectPath": "/Users/andreawindisch/DATA/BCC/BCC-04Semester/CD-CSharp-Development/EscapeRoom/libs/libs.csproj"
+            "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\libs\\libs.csproj": {
+              "projectPath": "C:\\Users\\stefa\\OneDrive\\Dokumente\\FH StPoelten BCC\\4. Semester\\CD\\EscapeRoom\\EscapeRoom\\libs\\libs.csproj"
             }
           }
         }
@@ -133,7 +133,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

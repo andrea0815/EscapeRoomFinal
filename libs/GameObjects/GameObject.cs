@@ -11,13 +11,14 @@ public class GameObject : IGameObject, IMovement
 {
     public bool Collidable{ get; set; }
     public bool Movable{ get; set; }
+    public bool HasKey{ get; set; }
 
     private char _charRepresentation = '#';
     private ConsoleColor _color;
 
     private int _posX;
     private int _posY;
-    
+
     private int _prevPosX;
     private int _prevPosY;
 
@@ -67,14 +68,14 @@ public class GameObject : IGameObject, IMovement
     public int GetPrevPosY() {
         return _prevPosY;
     }
-    
+
     public int GetPrevPosX() {
         return _prevPosX;
     }
-      
+
 
     public void Move(int dx, int dy) {
-        
+
         _prevPosX = _posX;
         _prevPosY = _posY;
         _posX += dx;
@@ -85,7 +86,7 @@ public class GameObject : IGameObject, IMovement
     public void UndoMove() {
         _posX = _prevPosX;
         _posY = _prevPosY;
-        
+
         Console.WriteLine("Undo Position: (" + _posX + ", " + _posY + ")");
     }
     public void CheckBoxCollision(List<GameObject> boxes, GameObject player, Direction playerdirection, int dx, int dy)
@@ -141,6 +142,22 @@ public class GameObject : IGameObject, IMovement
         }
     }
 
+    public void CollectKey (List<GameObject> keys, GameObject player) {
+        foreach (var key in keys)
+        {
+            if (player.PosX == key.PosX && player.PosY == key.PosY)
+            {
+
+                keys.Remove(key);
+                player.HasKey = true;
+                //set player boolean to true
+                break;
+
+            }
+        }
+    }
+
+  //check if the pushed box collides with another box
   public void CheckCollisionWithAllBoxes(List<GameObject> boxes, GameObject player, Direction playerDirection, int dx, int dy)
   {
       // Calculate the new position of the player based on the movement direction
