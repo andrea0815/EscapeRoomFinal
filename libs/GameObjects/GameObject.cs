@@ -142,14 +142,14 @@ public class GameObject : IGameObject, IMovement
         }
     }
 
-    public void CollectKey (List<GameObject> keys, GameObject player) {
+    public void CheckCollisionWithKey(List<GameObject> keys, GameObject player, Direction playerDirection, int dx, int dy)
+    {
         foreach (var key in keys)
         {
             if (player.PosX == key.PosX && player.PosY == key.PosY)
             {
-
-                keys.Remove(key);
                 player.HasKey = true;
+                   key.PosX = -1;
                 //set player boolean to true
                 break;
 

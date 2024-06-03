@@ -50,7 +50,7 @@ public sealed class GameEngine
     private Map map = new Map();
 
     private DialogBox dialogBox = new DialogBox();
-    string dialogMessage = "Hello, this is a test message in the dialog box! You can update this text dynamically based on user inputs or game state.";
+    string dialogMessage = "Hello! Welcome to the game! Find the key to unlock the door and escape the room!";
 
 
     private List<GameObject> gameObjects = new List<GameObject>();
@@ -205,16 +205,19 @@ public sealed class GameEngine
         return null;
     }
 
-    public GameObject GetKeyObject()
+    public List<GameObject> GetKeyObjects()
     {
+        List<GameObject> keyObjects = new List<GameObject>();
+
         foreach (var gameObject in gameObjects)
         {
             if (gameObject is Key)
             {
-                return gameObject;
+                keyObjects.Add(gameObject);
             }
         }
-        return null;
+
+        return keyObjects;
     }
 
 
@@ -335,8 +338,6 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
 
     public bool finishLevel(GameObject goal, GameObject key, GameObject player)
             {
-
-                // Check if player posseses the key
                 if (key == null)
                 {
                     Console.WriteLine("Error: The key object is null.");
@@ -347,17 +348,29 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
                     Console.WriteLine("Error: The goal object is null.");
                     return false; // Return false to indicate that the level cannot be finished due to error
                 }
-
-
+//                 Console.WriteLine($"Player has key: {player.HasKey}");
+//                 Console.WriteLine($"Current Level Index: {currentLevelIndex}");
+//                 Console.WriteLine($"Level File Paths Length: {levelFilePaths.Length}");
 
                 // Check if the player is on the goal and has the key
-                if (player.PosX == goal.PosX && player.PosY == goal.PosY && player.HasKey)
+               if (player.PosX == goal.PosX && player.PosY == goal.PosY && !player.HasKey)
+                {
+                    if (currentLevelIndex == 3) {
+                        dialogMessage = "Congratulations! You have escaped!";
+                    }
+                    else {
+                        dialogMessage = "You need to find the key to unlock the door!";
+                    }
+                    return false;
+                }
+
+                else if (player.PosX == goal.PosX && player.PosY == goal.PosY && player.HasKey)
                 {
 
                     // Increment the current level index
                     currentLevelIndex++;
                     player.HasKey = false;
-
+                    dialogMessage = "Welcome to the next level! Search for the key to unlock the door.";
                     // Check if there are more levels to load
                     if (currentLevelIndex < levelFilePaths.Length)
                     {
@@ -374,6 +387,11 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
 
                     return true;
                 }
+                      else if (player.HasKey)
+                                {
+                                    dialogMessage = "Good you found the key, now you need to reach the door to escape the room!";
+                                    return false;
+                                }
                 else
                 {
                     return false;
@@ -387,7 +405,8 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
             // Clear the console and display "Time is over"
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Time is over. You did not escape.");
+            Console.WriteLine("Time is over!");
+            dialogMessage = "Time is over!";
             return;
        }
 
@@ -396,12 +415,11 @@ public void CheckWallCollision(GameObject player, Direction playerDirection)
 
         // Render timer underneath the map
         RenderTimer();
-
         map.Initialize();
 
         PlaceGameObjects();
         GameObject goal = GetGoalObject(1);
-        GameObject key = GetKeyObject();
+        GameObject key = GetKeyObjects().FirstOrDefault();
         GameObject player = GetPlayerObject();
 
 
