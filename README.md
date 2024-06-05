@@ -1,28 +1,28 @@
 # EscapeRoom requirements
  
 
-## Project Management
+### Project Management
 Use Github for organization of your workload. Devide your workload and manage it by any agile approach (KANBAN or Onion Diagram). GIT history must show commits of each team mate.
  
 
-## Multiple levels
+### Multiple levels
 The game must provide at least 2 levels. They should differ regarding difficulty.
  
 
-## Main Menu
+### Main Menu
 There must be a main menu. The design is up to you. For instance: A MenuItem called "START" is displayed at the start of the game. In addition there can be "LOAD" or "SAVE". As some of you already implemented.
  
 
-## Dialog
+### Dialog
 The game must contain a dialog. The design is up to you. The dialog and its DialogNodes must be loaded from a JSON. It can be a dialog with an NPC/GameObject or an "Introduction" of the game when starting it.
 
  
 
-## LINQ
+### LINQ
 Use LINQ in your implementation. It can be used for handling our GameObjects or Obstacles. You can use the Method or Query based syntax.
  
 
-## Presentation Video
+### Presentation Video
 Present your outcomes in a video of 2-5 minutes. Keep it as simple as possible - a simple screencapture is totally fine.
 Think of our CodeReviews in class and point out the following topics:
 - Project Management: How did you manage your workload?
