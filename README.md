@@ -10,16 +10,24 @@ The game must provide at least 2 levels. They should differ regarding difficulty
  
 
 ### Main Menu
-There must be a main menu. The design is up to you. For instance: A MenuItem called "START" is displayed at the start of the game. In addition there can be "LOAD" or "SAVE". As some of you already implemented.
+- There must be a main menu. 
+- The design is up to you.
+- For instance: A MenuItem called "START" is displayed at the start of the game.
+- In addition there can be "LOAD" or "SAVE". As some of you already implemented.
  
 
 ### Dialog
-The game must contain a dialog. The design is up to you. The dialog and its DialogNodes must be loaded from a JSON. It can be a dialog with an NPC/GameObject or an "Introduction" of the game when starting it.
+- The game must contain a dialog. 
+- The design is up to you. 
+- The dialog and its DialogNodes must be loaded from a JSON. 
+- It can be a dialog with an NPC/GameObject or an "Introduction" of the game when starting it.
 
  
 
 ### LINQ
-Use LINQ in your implementation. It can be used for handling our GameObjects or Obstacles. You can use the Method or Query based syntax.
+- Use LINQ in your implementation. 
+- It can be used for handling our GameObjects or Obstacles. 
+- You can use the Method or Query based syntax.
  
 
 ### Presentation Video
@@ -35,7 +43,7 @@ Think of our CodeReviews in class and point out the following topics:
 If you integrate config files from Unity (JSON) to your C# console app, you gain some extra points.
  
 
-# 4) Grading
+# Grading
 The following topics affect the grading:
 
 - Fulfillment of requirements
