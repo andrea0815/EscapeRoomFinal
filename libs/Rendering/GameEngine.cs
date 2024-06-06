@@ -11,17 +11,20 @@ using Newtonsoft.Json;
 // Singleton class that manages the game state
 public sealed class GameEngine
 {
-    private static GameEngine? _instance;
-    private IGameObjectFactory gameObjectFactory;
-    private Stack<GameState> gameStates;
-    private int currentLevelIndex = 0; // Assume the initial level index is 0
-    private string[] levelFilePaths = { "level00.json", "level01.json", "level02.json" };
+        private static readonly Lazy<GameEngine> lazy = new Lazy<GameEngine>(() => new GameEngine());
 
-    private int moveCount;
-     private DateTime startTime;
-     private TimeSpan countdownDuration = TimeSpan.FromMinutes(4);
-     private TimeSpan countdown;
+        public static GameEngine Instance { get { return lazy.Value; } }
 
+        private IGameObjectFactory gameObjectFactory;
+        private Stack<GameState> gameStates;
+        private int currentLevelIndex = 0;
+        private string[] levelFilePaths = { "level00.json", "level01.json", "level02.json" };
+
+        private int moveCount;
+        private DateTime startTime;
+        private TimeSpan countdownDuration = TimeSpan.FromMinutes(4);
+        private TimeSpan countdown;
+        
     public static GameEngine Instance
     {
         get
