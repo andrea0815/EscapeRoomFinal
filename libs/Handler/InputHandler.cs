@@ -1,13 +1,28 @@
 namespace libs;
 
-public sealed class InputHandler{
+public sealed class InputHandler
+{
+    private static readonly Lazy<InputHandler> lazy = new Lazy<InputHandler>(
+        () => new InputHandler()
+    );
 
-    private static InputHandler? _instance;
+    public static InputHandler Instance
+    {
+        get { return lazy.Value; }
+    }
+
     private GameEngine engine;
 
-    public static InputHandler Instance {
-        get{
-            if(_instance == null)
+    private InputHandler()
+    {
+        engine = GameEngine.Instance;
+    }
+
+    public static InputHandler Instance
+    {
+        get
+        {
+            if (_instance == null)
             {
                 _instance = new InputHandler();
             }
@@ -15,7 +30,8 @@ public sealed class InputHandler{
         }
     }
 
-    private InputHandler() {
+    private InputHandler()
+    {
         //INIT PROPS HERE IF NEEDED
         engine = GameEngine.Instance;
     }
@@ -27,15 +43,13 @@ public sealed class InputHandler{
         GameObject box = engine.GetBox();
         List<GameObject> boxes = engine.GetBoxObjects();
         GameObject wall = engine.GetWallObject();
-        List<GameObject> keys= engine.GetKeyObjects();
+        List<GameObject> keys = engine.GetKeyObjects();
 
+        if (focusedObject != null)
+        {
+            int dx = 0;
+            int dy = 0;
 
-
-        if (focusedObject != null) {
-              int dx = 0;
-        int dy = 0;
-       
-        
             // Handle keyboard input to move the player
             switch (keyInfo.Key)
             {
@@ -59,24 +73,30 @@ public sealed class InputHandler{
                 case ConsoleKey.LeftArrow:
                     dx = -1;
                     ((Player)focusedObject).SetFacingDirection(Direction.Left);
-                    focusedObject.CheckBoxCollision(boxes, player, Direction.Left,    dx, dy);
+                    focusedObject.CheckBoxCollision(boxes, player, Direction.Left, dx, dy);
                     focusedObject.CheckCollisionWithAllBoxes(boxes, player, Direction.Left, dx, dy);
                     engine.CheckWallCollision(player, Direction.Left);
                     focusedObject.CheckCollisionWithKey(keys, player, Direction.Left, dx, dy);
                     break;
                 case ConsoleKey.RightArrow:
                     dx = 1;
-                     ((Player)focusedObject).SetFacingDirection(Direction.Right);
+                    ((Player)focusedObject).SetFacingDirection(Direction.Right);
                     focusedObject.CheckBoxCollision(boxes, player, Direction.Right, dx, dy);
-                    focusedObject.CheckCollisionWithAllBoxes(boxes, player, Direction.Right, dx, dy);
+                    focusedObject.CheckCollisionWithAllBoxes(
+                        boxes,
+                        player,
+                        Direction.Right,
+                        dx,
+                        dy
+                    );
                     engine.CheckWallCollision(player, Direction.Right);
                     focusedObject.CheckCollisionWithKey(keys, player, Direction.Right, dx, dy);
                     break;
                 case ConsoleKey.D:
-                  Console.WriteLine("Undo");
-                  engine.UndoMove( (Player)player, boxes);
+                    Console.WriteLine("Undo");
+                    engine.UndoMove((Player)player, boxes);
                     break;
-                 case ConsoleKey.S:
+                case ConsoleKey.S:
                     GameEngine.Instance.SaveGame("../gameSave.json");
                     Console.WriteLine("Game saved!");
                     break;
@@ -89,16 +109,14 @@ public sealed class InputHandler{
             }
             if (engine.CanMove(focusedObject, box, dx, dy))
             {
-             
                 focusedObject.Move(dx, dy);
-                engine.AddMoveCount( );
+                engine.AddMoveCount();
                 engine.Render();
             }
             else
             {
-            Console.WriteLine("You can't move there!");         }
+                Console.WriteLine("You can't move there!");
+            }
         }
-        
     }
- 
 }
