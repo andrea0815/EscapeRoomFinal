@@ -15,23 +15,6 @@ public sealed class InputHandler
 
     private InputHandler()
     {
-        engine = GameEngine.Instance;
-    }
-
-    public static InputHandler Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new InputHandler();
-            }
-            return _instance;
-        }
-    }
-
-    private InputHandler()
-    {
         //INIT PROPS HERE IF NEEDED
         engine = GameEngine.Instance;
     }
