@@ -131,7 +131,10 @@ namespace libs
             string json = JsonConvert.SerializeObject(gameState, Formatting.Indented);
             File.WriteAllText(filePath, json);
             dialogBox.Show("Game saved! Returning to main menu...");
-            InputHandler.IsInMenuMode = true!;
+            if (InputHandler != null)
+            {
+                InputHandler.IsInMenuMode = true;
+            }
             DisplayMainMenu();
         }
 
@@ -367,8 +370,8 @@ namespace libs
         {
             return gameObjects
                 .Where(obj => obj is Key)
-                .OrderBy(obj => Math.Abs(obj.PositionX - player.PositionX) + Math.Abs(obj.PositionY - player.PositionY))
-                .FirstOrDefault();
+                .OrderBy(obj => Math.Abs(obj.PosX - player.PosX) + Math.Abs(obj.PosY - player.PosY))
+                .FirstOrDefault()!;
         }
 
         // Method to count the number of boxes
@@ -384,7 +387,14 @@ namespace libs
 
         public GameObject? GetFocusedObject()
         {
-            return _focusedObject;
+            if (_focusedObject != null)
+            {
+                return _focusedObject;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public GameObject? GetBox()
@@ -801,10 +811,13 @@ namespace libs
 
                 var input = Console.ReadKey();
                 Console.WriteLine(); // To move to the next line after key press
-                InputHandler.Handle(input);
-                if (!InputHandler.IsInMenuMode)
+                if (InputHandler != null)
                 {
-                    break; // Exit the menu loop and enter the game loop
+                    InputHandler.Handle(input);
+                    if (!InputHandler.IsInMenuMode)
+                    {
+                        break; // Exit the menu loop and enter the game loop
+                    }
                 }
             }
         }
