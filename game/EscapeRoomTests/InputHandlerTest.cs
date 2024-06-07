@@ -43,7 +43,7 @@ namespace EscapeRoomFinal.Tests
         public void Test_Handle_Input_NullObjects()
         {
             SetPrivateField(engine, "_focusedObject", null);
-            SetPrivateField(engine, "gameObjects", new List<GameObject>());
+            SetPrivateField(engine, "gameObjects", new List<GameObject?>());
 
             ConsoleKeyInfo keyInfo = new ConsoleKeyInfo('a', ConsoleKey.A, false, false, false);
             inputHandler.Handle(keyInfo);
