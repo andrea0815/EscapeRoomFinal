@@ -6,7 +6,7 @@ namespace libs
         {
 
             Type = GameObjectType.Key;
-            CharRepresentation = '⚿';
+            CharRepresentation = 'K';
             Color = ConsoleColor.DarkGreen;
         }
     }

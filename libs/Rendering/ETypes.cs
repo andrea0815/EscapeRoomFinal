@@ -6,5 +6,6 @@ public enum GameObjectType
   Goal,
   Floor,
   Trap,
-  Key
+  Key,
+  King
 }

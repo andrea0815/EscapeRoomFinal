@@ -73,15 +73,21 @@ public class GameObject : IGameObject, IMovement
         return _prevPosX;
     }
 
+    //DIALOG STUFF
+    public Dialog? dialog;
+
+    protected List<DialogNode> dialogNodes = new List<DialogNode>();
+
 
     public void Move(int dx, int dy) {
-
         _prevPosX = _posX;
         _prevPosY = _posY;
         _posX += dx;
         _posY += dy;
         Console.WriteLine("New Position: (" + _posX + ", " + _posY + ")");
     }
+
+    
 
     public void UndoMove() {
         _posX = _prevPosX;
@@ -229,4 +235,8 @@ public class GameObject : IGameObject, IMovement
       boxToPush.PosX = newBoxPosX;
       boxToPush.PosY = newBoxPosY;
   }
+
+  public bool HasDialog(){
+        return (dialog == null) ? false : true;
+    }
 }
