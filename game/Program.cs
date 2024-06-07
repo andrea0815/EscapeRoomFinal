@@ -1,8 +1,6 @@
 ﻿using libs;
 
-using System;
-using System.Threading;
-
+namespace EscapeRoomFinal;
 class Program
 {
     static void Main(string[] args)
