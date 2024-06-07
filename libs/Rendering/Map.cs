@@ -50,7 +50,7 @@ public class Map
         set { _mapHeight = value; Initialize();} // Setter
     }
 
-    public GameObject Get(int x, int y){
+    public GameObject? Get(int x, int y){
         return GameObjectLayer[x, y];
     }
 
