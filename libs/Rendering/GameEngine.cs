@@ -356,6 +356,27 @@ namespace libs
             }
         }
 
+        // Method to find all keys
+        public List<GameObject> GetAllKeys()
+        {
+            return gameObjects.Where(obj => obj is Key).ToList();
+        }
+
+        // Method to find the nearest key to the player
+        public GameObject GetNearestKey(GameObject player)
+        {
+            return gameObjects
+                .Where(obj => obj is Key)
+                .OrderBy(obj => Math.Abs(obj.PositionX - player.PositionX) + Math.Abs(obj.PositionY - player.PositionY))
+                .FirstOrDefault();
+        }
+
+        // Method to count the number of boxes
+        public int CountBoxes()
+        {
+            return gameObjects.Count(obj => obj is Box);
+        }
+
         public Map GetMap()
         {
             return map;
