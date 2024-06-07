@@ -197,7 +197,7 @@ public class GameObject : IGameObject, IMovement
         int newBoxPosY = newPlayerPosY;
 
         // Check if there's a box at the new position after player's movement
-        GameObject boxToPush = boxes.FirstOrDefault(box =>
+        GameObject? boxToPush = boxes.FirstOrDefault(box =>
             box.PosX == newBoxPosX && box.PosY == newBoxPosY
         );
 
