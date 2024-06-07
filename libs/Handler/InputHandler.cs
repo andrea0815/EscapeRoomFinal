@@ -21,14 +21,14 @@ public sealed class InputHandler
 
     public void Handle(ConsoleKeyInfo keyInfo)
     {
-        GameObject focusedObject = engine.GetFocusedObject();
-        GameObject player = engine.GetPlayerObject();
-        GameObject box = engine.GetBox();
-        List<GameObject> boxes = engine.GetBoxObjects();
-        GameObject wall = engine.GetWallObject();
-        List<GameObject> keys = engine.GetKeyObjects();
+        GameObject? focusedObject = engine.GetFocusedObject();
+        GameObject? player = engine.GetPlayerObject();
+        GameObject? box = engine.GetBox();
+        List<GameObject>? boxes = engine.GetBoxObjects();
+        GameObject? wall = engine.GetWallObject();
+        List<GameObject>? keys = engine.GetKeyObjects();
 
-        if (focusedObject != null)
+        if (focusedObject != null && player != null && box != null && boxes != null && wall != null && keys != null)
         {
             int dx = 0;
             int dy = 0;
@@ -43,7 +43,6 @@ public sealed class InputHandler
                     focusedObject.CheckCollisionWithAllBoxes(boxes, player, Direction.Up, dx, dy);
                     engine.CheckWallCollision(player, Direction.Up);
                     focusedObject.CheckCollisionWithKey(keys, player, Direction.Up, dx, dy);
-
                     break;
                 case ConsoleKey.DownArrow:
                     dy = 1;
@@ -65,13 +64,7 @@ public sealed class InputHandler
                     dx = 1;
                     ((Player)focusedObject).SetFacingDirection(Direction.Right);
                     focusedObject.CheckBoxCollision(boxes, player, Direction.Right, dx, dy);
-                    focusedObject.CheckCollisionWithAllBoxes(
-                        boxes,
-                        player,
-                        Direction.Right,
-                        dx,
-                        dy
-                    );
+                    focusedObject.CheckCollisionWithAllBoxes(boxes, player, Direction.Right, dx, dy);
                     engine.CheckWallCollision(player, Direction.Right);
                     focusedObject.CheckCollisionWithKey(keys, player, Direction.Right, dx, dy);
                     break;
@@ -100,6 +93,10 @@ public sealed class InputHandler
             {
                 Console.WriteLine("You can't move there!");
             }
+        }
+        else
+        {
+            Console.WriteLine("One or more required game objects are null. Cannot proceed with the operation.");
         }
     }
 }
