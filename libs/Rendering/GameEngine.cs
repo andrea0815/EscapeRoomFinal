@@ -68,7 +68,7 @@ public sealed class GameEngine
         {
             MapWidth = map.MapWidth,
             MapHeight = map.MapHeight,
-            Player = new { X = GetPlayerObject().PosX, Y = GetPlayerObject().PosY },
+            Player = new { X = GetPlayerObject()?.PosX ?? 0, Y = GetPlayerObject()?.PosY ?? 0 },
             Boxes = boxes
                 .Select(b => new
                 {
@@ -156,7 +156,7 @@ public sealed class GameEngine
         }
 
         // Optionally reset the focused object and other necessary states
-        _focusedObject = gameObjects.OfType<Player>().First();
+        _focusedObject = gameObjects.OfType<Player>().FirstOrDefault();
     }
 
     public Map GetMap()
@@ -169,7 +169,7 @@ public sealed class GameEngine
         return _focusedObject;
     }
 
-    public GameObject GetBox()
+    public GameObject? GetBox()
     {
         foreach (var gameObject in gameObjects)
         {
@@ -181,7 +181,7 @@ public sealed class GameEngine
         return null;
     }
 
-    public GameObject GetBoxObject(int boxNumber)
+    public GameObject? GetBoxObject(int boxNumber)
     {
         int count = 0;
         foreach (var gameObject in gameObjects)
@@ -297,7 +297,6 @@ public sealed class GameEngine
                         {
                             playerObject.PosY++;
                         }
-
                         break;
                     case Direction.Down:
                         if (boxObject.PosY == wallObject.PosY && boxObject.PosX == wallObject.PosX)
@@ -479,9 +478,15 @@ public sealed class GameEngine
         map.Initialize();
 
         PlaceGameObjects();
-        GameObject goal = GetGoalObject(1);
-        GameObject key = GetKeyObjects().FirstOrDefault();
-        GameObject player = GetPlayerObject();
+        GameObject? goal = GetGoalObject(1);
+        GameObject? key = GetKeyObjects().FirstOrDefault();
+        Player? player = GetPlayerObject();
+
+        if (goal == null || key == null || player == null)
+        {
+            Console.WriteLine("Error: Critical game object is missing.");
+            return;
+        }
 
         // Logic for winning
         if (finishLevel(goal, key, player))
@@ -606,7 +611,7 @@ public sealed class GameEngine
             return false;
         }
 
-        GameObject gameObject = map.Get(newPosY, newPosX);
+        GameObject? gameObject = map.Get(newPosY, newPosX);
 
         if (gameObject is Obstacle)
         {
@@ -614,7 +619,7 @@ public sealed class GameEngine
             return false;
         }
 
-        GameState currentState = new GameState(GetBoxObjects(), GetPlayerObject());
+        GameState currentState = new GameState(GetBoxObjects(), GetPlayerObject()!);
         gameStates.Push(currentState);
         return true;
     }
