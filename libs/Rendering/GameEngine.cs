@@ -105,7 +105,13 @@ public sealed class GameEngine
     public void LoadGame(string filePath)
     {
         string json = File.ReadAllText(filePath);
-        dynamic gameState = JsonConvert.DeserializeObject<dynamic>(json);
+        dynamic? gameState = JsonConvert.DeserializeObject<dynamic>(json);
+
+        if (gameState == null)
+        {
+            Console.WriteLine("Error: Failed to load game state from file.");
+            return;
+        }
 
         map.MapWidth = gameState.MapWidth;
         map.MapHeight = gameState.MapHeight;
@@ -371,8 +377,13 @@ public sealed class GameEngine
         string levelData = File.ReadAllText(levelFilePath);
 
         // Parse the level data into a dynamic object
-        dynamic level = JsonConvert.DeserializeObject(levelData);
+        dynamic? level = JsonConvert.DeserializeObject(levelData);
 
+        if (level == null)
+        {
+            Console.WriteLine("Error: Failed to load level data from file.");
+            return;
+        }
         // Clear the existing game objects
         gameObjects.Clear();
 
