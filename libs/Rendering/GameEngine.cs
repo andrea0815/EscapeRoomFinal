@@ -140,6 +140,12 @@ namespace libs
 
         public void LoadGame(string filePath)
         {
+            if (!Directory.Exists(Path.GetDirectoryName(filePath)) || !File.Exists(filePath))
+            {
+                Console.WriteLine("Error: Save Game Directory or file does not exist.");
+                DisplayMainMenu();
+                return;
+            }
             string json = File.ReadAllText(filePath);
             dynamic? gameState = JsonConvert.DeserializeObject<dynamic>(json);
 
@@ -614,9 +620,21 @@ namespace libs
             GameObject? key = GetKeyObjects().FirstOrDefault();
             Player? player = GetPlayerObject();
 
-            if (goal == null || key == null || player == null)
+            if (goal == null)
             {
-                Console.WriteLine("Error: Critical game object is missing.");
+                Console.WriteLine("Error: Goal object is missing.");
+                return;
+            }
+
+            if (key == null)
+            {
+                Console.WriteLine("Error: Key object is missing.");
+                return;
+            }
+
+            if (player == null)
+            {
+                Console.WriteLine("Error: Player object is missing.");
                 return;
             }
 

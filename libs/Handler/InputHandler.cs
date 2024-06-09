@@ -51,7 +51,7 @@ public sealed class InputHandler
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    engine.LoadGame("../gameSave.json");
+                    engine.LoadGame("../savedGames/gameSave.json");
                     IsInMenuMode = false; // Switch to game mode
                     break;
                 case ConsoleKey.D3: // This case handles the "3" key
@@ -74,12 +74,12 @@ public sealed class InputHandler
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
-                    engine.LoadGame("../gameSave.json");
+                    engine.LoadGame("../savedGames/gameSave.json");
                     IsInMenuMode = false; // Switch to game mode
                     break;
                 case ConsoleKey.D3:
                 case ConsoleKey.NumPad3:
-                    engine.SaveGame("../gameSave.json");
+                    engine.SaveGame("../savedGames/gameSave.json");
                     break;
                 case ConsoleKey.D4:
                 case ConsoleKey.NumPad4:
@@ -160,11 +160,11 @@ public sealed class InputHandler
                     break;
                 case ConsoleKey.D3:
                 case ConsoleKey.NumPad3:
-                    GameEngine.Instance.SaveGame("../gameSave.json");
+                    GameEngine.Instance.SaveGame("../savedGames/gameSave.json");
                     Console.WriteLine("Game saved!");
                     break;
                 case ConsoleKey.L:
-                    GameEngine.Instance.LoadGame("../gameSave.json");
+                    GameEngine.Instance.LoadGame("../savedGames/gameSave.json");
                     Console.WriteLine("Game loaded!");
                     break;
                 default:
