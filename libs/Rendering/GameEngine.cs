@@ -40,7 +40,7 @@ public sealed class GameEngine
     private Map map = new Map();
 
     private DialogBox dialogBox = new DialogBox();
-    string dialogMessage = "Hello! Welcome to the game! Find the key to unlock the door and escape the room!";
+    string dialogMessage = "Hello! Welcome to the game! Find the key to unlock the door and escape the room! ";
 
 
     private List<GameObject> gameObjects = new List<GameObject>();

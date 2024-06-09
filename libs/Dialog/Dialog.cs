@@ -1,52 +1,47 @@
-namespace libs;
-
-public class Dialog
-{  
-    private DialogNode _currentNode;
-    private DialogNode _startingNode;
-
-    private DialogNode _endNode;
-
-    public Dialog (DialogNode startingNode)
+namespace libs
+{
+    public class Dialog
     {
-        _startingNode = startingNode;
-        _currentNode = startingNode;
-        _endNode = new DialogNode("There is nothing left to say...");
-    }
+        private DialogNode _currentNode;
+        private DialogNode _startingNode;
+        private DialogNode _endNode;
+        private DialogBox _dialogBox;
 
-    public void Start()
-    {
-        //(int x, int y) = Console.GetCursorPosition();
-        //TODO Clear Buffer of Console to overwrite the nodes
-        while (_currentNode != null)
+        public Dialog(DialogNode startingNode)
         {
-            Console.WriteLine(_currentNode.Text);
-            for (int i = 0; i < _currentNode.Responses.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {_currentNode.Responses[i].ResponseText}");
-            }
-
-            int choice;
-            if(_currentNode.Responses.Count == 0)
-                break;
-
-            while (true)
-            {
-                Console.Write("Choose an option: ");
-                if (int.TryParse(Console.ReadLine(), out choice) && choice > 0 && choice <= _currentNode.Responses.Count)
-                {
-                    break;
-                }
-                Console.WriteLine("Invalid choice, please try again.");
-            }
-
-            _currentNode = _currentNode.Responses[choice - 1].NextNode;
+            _startingNode = startingNode;
+            _currentNode = startingNode;
+            _endNode = new DialogNode("There is nothing left to say...");
+            _dialogBox = new DialogBox();
         }
 
-        _currentNode = _endNode;
+        public void Start()
+        {
+            while (_currentNode != null)
+            {
+                // Clear the previous content
+                Console.Clear();
 
-        Console.WriteLine("End of dialog.");
-        Thread.Sleep(1000);
+                // Show the current dialog text and response options
+                var options = _currentNode.Responses.Select(r => r.ResponseText).ToArray();
+                _dialogBox.Show(_currentNode.Text, options);
 
+                if (_currentNode.Responses.Count == 0)
+                    break;
+
+                int choice = _dialogBox.GetInput(_currentNode.Responses.Count);
+
+                _currentNode = _currentNode.Responses[choice - 1].NextNode;
+            }
+
+            _currentNode = _endNode;
+
+            // Clear the previous content
+            Console.Clear();
+
+            // Show the end of dialog message
+            _dialogBox.Show("End of dialog.");
+            Thread.Sleep(1000);
+        }
     }
 }
