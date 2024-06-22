@@ -30,6 +30,9 @@ public class GameObjectFactory : IGameObjectFactory
             case (int) GameObjectType.Key:
                 newObj = obj.ToObject<Key>();
                 break;
+            case (int) GameObjectType.King:
+                newObj = obj.ToObject<King>();
+                break;
         }
 
         return newObj;

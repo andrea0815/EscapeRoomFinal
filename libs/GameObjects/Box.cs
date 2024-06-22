@@ -6,8 +6,8 @@ namespace libs
         {
 
             Type = GameObjectType.Box;
-            CharRepresentation = '⌸';
-            Color = ConsoleColor.White;
+            CharRepresentation = '⚀';
+            Color = ConsoleColor.DarkGreen;
         }
     }
 }
