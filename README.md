@@ -1,12 +1,14 @@
-# EscapeRoom requirements
- 
+# EscapeRoom
 
+## Requirements
+ 
 ### Project Management
 Use Github for organization of your workload. Devide your workload and manage it by any agile approach (KANBAN or Onion Diagram). GIT history must show commits of each team mate.
  
 
 ### Multiple levels
-The game must provide at least 2 levels. They should differ regarding difficulty.
+- The game must provide at least 2 levels. 
+- They should differ regarding difficulty.
  
 
 ### Main Menu
