@@ -1,12 +1,7 @@
 namespace libs;
 
-public class Response {
-    public string ResponseText { get; set; }
-    public DialogNode NextNode { get; set; }
-
-    public Response(string responseText, DialogNode nextNode)
-    {
-        ResponseText = responseText;
-        NextNode = nextNode;
-    }
+public class Response(string responseText, DialogNode nextNode)
+{
+    public string ResponseText { get; set; } = responseText;
+    public DialogNode NextNode { get; set; } = nextNode;
 }

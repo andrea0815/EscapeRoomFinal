@@ -1,19 +1,11 @@
 namespace libs
 {
-    public class Dialog
+    public class Dialog(DialogNode startingNode)
     {
-        private DialogNode _currentNode;
-        private DialogNode _startingNode;
-        private DialogNode _endNode;
-        private DialogBox _dialogBox;
-
-        public Dialog(DialogNode startingNode)
-        {
-            _startingNode = startingNode;
-            _currentNode = startingNode;
-            _endNode = new DialogNode("There is nothing left to say...");
-            _dialogBox = new DialogBox();
-        }
+        private DialogNode _currentNode = startingNode;
+        private DialogNode _startingNode = startingNode;
+        private DialogNode _endNode = new DialogNode("There is nothing left to say...");
+        private DialogBox _dialogBox = new DialogBox();
 
         public void Start()
         {
