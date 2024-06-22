@@ -14,7 +14,7 @@ namespace libs
         }
 
         // Method to display the dialog box with the provided message and options
-        public void Show(string message, string[] options = null)
+        public void Show(string message, string[]? options = null)
         {
             string[] formattedMessage = FormatMessage(message);
             var contentLines = new System.Collections.Generic.List<string>(formattedMessage);
