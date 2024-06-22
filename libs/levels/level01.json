@@ -12,6 +12,11 @@
       "PosY": 5
     },
     {
+      "Type": 7,
+      "PosX": 3,
+      "PosY": 6
+    },
+    {
       "Type": 2,
       "PosX": 2,
       "PosY": 5

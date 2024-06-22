@@ -7,9 +7,13 @@
 
     {
       "Type": 0,
-      "Color": 5,
       "PosX": 17,
       "PosY": 1
+    },
+    {
+      "Type": 7,
+      "PosX": 3,
+      "PosY": 2
     },
     {
       "Type": 2,
