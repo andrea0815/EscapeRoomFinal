@@ -1,79 +1,50 @@
 [
     {
-        "Text": "King: Hello fellow, I need your help to escape this prison. Do you need more information?",
-        "Responses": [
-            {
-                "Text": "You: Yes, I need some information.",
-                "NextNodeText": "King: Sure, what do you want to know?"
-            },
-            {
-                "Text": "You: No, thanks.",
-                "NextNodeText": "King: Good luck, fellow!"
-            }
-        ]
+      "id": 1,
+      "text": "King: Hello fellow, I need your help to escape this prison. Do you need more information?",
+      "responses": [
+        {"text": "You: Yes, I need some information.", "nextNodeId": 2},
+        {"text": "You: No, thanks.", "nextNodeId": 6}
+      ]
     },
     {
-        "Text": "King: Sure, what do you want to know?",
-        "Responses": [
-            {
-                "Text": "You: What do I need to do?",
-                "NextNodeText": "King: You have to find the key to open the door. They are both yellow, so you can't miss them."
-            },
-            {
-                "Text": "You: Why are you here?",
-                "NextNodeText": "King: I was imprisoned here for a crime I didn't commit. I need to escape to prove my innocence."
-            },
-            {
-                "Text": "You: Nevermind.",
-                "NextNodeText": "King: Good luck, fellow!"
-            }
-        ]
+      "id": 2,
+      "text": "King: Sure, what do you want to know?",
+      "responses": [
+        {"text": "You: What do I need to do?", "nextNodeId": 4},
+        {"text": "You: Why are you here?", "nextNodeId": 3},
+        {"text": "You: Nevermind.", "nextNodeId": 6}
+      ]
     },
     {
-        "Text": "King: I was imprisoned here for a crime I didn't commit. I need to escape to prove my innocence.",
-        "Responses": [
-            {
-                "Text": "You: Oh, how terrible! I will help you!",
-                "NextNodeText": "King: Do you need some more information?"
-            },
-            {
-                "Text": "You: Okay, thanks for the information.",
-                "NextNodeText": "King: Good luck, fellow!"
-            }
-        ]
+      "id": 3,
+      "text": "King: I was imprisoned here for a crime I didn't commit. I need to escape to prove my innocence.",
+      "responses": [
+        {"text": "You: Oh, how terrible! I will help you!", "nextNodeId": 5},
+        {"text": "You: Okay, thanks for the information.", "nextNodeId": 6}
+      ]
     },
     {
-        "Text": "King: You have to find the key to open the door. They are both yellow, so you can't miss them.",
-        "Responses": [
-            {
-                "Text": "You: I have some more questions.",
-                "NextNodeText": "King: Do you need some more information?"
-            },
-            {
-                "Text": "You: Thanks you for the information!",
-                "NextNodeText": "King: Good luck, fellow!"
-            }
-        ]
+      "id": 4,
+      "text": "King: You have to find the key to open the door. They are both yellow, so you can't miss them.",
+      "responses": [
+        {"text": "You: I have some more questions.", "nextNodeId": 5},
+        {"text": "You: Thanks you for the information!", "nextNodeId": 6}
+      ]
     },
     {
-        "Text": "King: Do you need some more information?",
-        "Responses": [
-            {
-                "Text": "You: What do I need to do?",
-                "NextNodeText": "King: You have to find the key to open the door. They are both yellow, so you can't miss them."
-            },
-            {
-                "Text": "You: Why are you here?",
-                "NextNodeText": "King: I was imprisoned here for a crime I didn't commit. I need to escape to prove my innocence."
-            },
-            {
-                "Text": "You: I had enough information, thank you.",
-                "NextNodeText": "King: Good luck, fellow!"
-            }
-        ]
+      "id": 5,
+      "text": "King: Do you need some more information?",
+      "responses": [
+        {"text": "You: What do I need to do?", "nextNodeId": 4},
+        {"text": "You: Why are you here?", "nextNodeId": 3},
+        {"text": "You: I had enough information, thank you.", "nextNodeId": 6}
+      ]
     },
     {
-        "Text": "King: Good luck, fellow!",
-        "Responses": []
+      "id": 6,
+      "text": "King: Good luck, fellow!",
+      "responses": []
     }
-]
+  ]
+  

@@ -23,7 +23,7 @@ namespace libs
 
                 int choice = _dialogBox.GetInput(_currentNode.Responses.Count);
 
-                _currentNode = _currentNode.Responses[choice - 1].NextNode;
+                _currentNode = new DialogNode(_currentNode.Responses[choice - 1].NextNodeId);
             }
 
             _currentNode = _endNode;
