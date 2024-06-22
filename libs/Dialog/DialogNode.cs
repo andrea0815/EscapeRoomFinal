@@ -13,6 +13,7 @@ public class DialogNode
     {
         Text = text;
         Responses = new List<Response>();
+        Id = string.Empty;
     }
 
     public void AddResponse(string responseText, string nextNodeId)

@@ -4,8 +4,8 @@ namespace libs
     {
         private DialogNode _currentNode = startingNode;
         private DialogNode _startingNode = startingNode;
-        private DialogNode _endNode = new DialogNode("There is nothing left to say...");
-        private DialogBox _dialogBox = new DialogBox();
+        private DialogNode _endNode = new("There is nothing left to say...");
+        private DialogBox _dialogBox = new();
 
         public void Start()
         {
