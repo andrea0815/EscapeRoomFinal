@@ -8,7 +8,7 @@ public class Player : GameObject {
 
     public Player () : base(){
         Type = GameObjectType.Player;
-        CharRepresentation = '⯈';
+        CharRepresentation = '☻';
         Color = ConsoleColor.DarkYellow;
         FacingDirection = Direction.Right;
         HasKey = false;
@@ -28,16 +28,16 @@ public class Player : GameObject {
                 switch (direction)
                 {
                     case Direction.Up:
-                        CharRepresentation = '⯅';
+                        CharRepresentation = '☻';
                         break;
                     case Direction.Down:
-                        CharRepresentation = '⯆';
+                        CharRepresentation = '☻';
                         break;
                     case Direction.Left:
-                        CharRepresentation = '⯇';
+                        CharRepresentation = '☻';
                         break;
                     case Direction.Right:
-                        CharRepresentation = '⯈';
+                        CharRepresentation = '☻';
                         break;
                 }
     }

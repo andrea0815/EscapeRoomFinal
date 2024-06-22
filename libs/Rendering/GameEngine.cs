@@ -763,11 +763,14 @@ namespace libs
 
             GameObject? gameObject = map.Get(newPosY, newPosX);
 
-            if (gameObject is Obstacle)
+        if (gameObject is Obstacle)
+        {
+            if (gameObject.HasDialog())
             {
-                Console.WriteLine("Obstacle or wall");
-                return false;
+                gameObject.dialog.Start();
             }
+            return false;
+        }
 
             GameState currentState = new GameState(GetBoxObjects(), GetPlayerObject()!);
             gameStates.Push(currentState);
