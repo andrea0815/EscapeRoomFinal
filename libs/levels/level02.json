@@ -42,23 +42,38 @@
     },
 
     {
-      "Type": 1,"Color": 2,
+      "Type": 1,
+      "PosX": 23,
+      "PosY": 6,
+      "CharRepresentation": "┼"
+    },
+    {
+      "Type": 1,
+      "PosX": 22,
+      "PosY": 6,
+      "CharRepresentation": "┼"
+    },
+    {
+      "Type": 1,
       "PosX": 25,
       "PosY": 6,
       "CharRepresentation": "┼"
     },
     {
       "Type": 1,
-      "PosX": 27,"Color": 2,
-      "PosY": 4,
+      "PosX": 26,
+      "PosY": 6,
       "CharRepresentation": "┼"
     },
     {
       "Type": 1,
-      "PosX": 29,"Color": 2,
+      "PosX": 27,
       "PosY": 6,
       "CharRepresentation": "┼"
     },
+ 
+
+ 
 
 
 
@@ -75,10 +90,9 @@
     },
     {
       "Type": 3,
-      "Color": 7,
       "PosX": 17,
       "PosY": 5,
-      "CharRepresentation": "─"
+      "CharRepresentation": "="
 
     },
     {
@@ -493,8 +507,8 @@
     },
     {
       "Type": 6,
-      "PosX": 20,
-      "PosY": 2
+      "PosX": 2,
+      "PosY": 7
 
     },
     {
@@ -851,20 +865,39 @@
     {
       "Type": 1,"Color": 4,
       "PosX": 7,
-      "PosY": 5,
+      "PosY": 6,
       "CharRepresentation": "▫"
     },
 
     {
       "Type": 1,"Color": 4,
       "PosX": 6,
-      "PosY": 5,
+      "PosY": 6,
       "CharRepresentation": "▫"
-    },{
+    },
+    {
       "Type": 1,"Color": 4,
       "PosX":8,
       "PosY": 7,
       "CharRepresentation": "▫"
+    },
+    {
+      "Type": 1,
+      "PosX": 12,
+      "PosY": 6,
+      "CharRepresentation": "█"
+    },
+    {
+      "Type": 1,
+      "PosX":10,
+      "PosY": 6,
+      "CharRepresentation": "▣"
+    },
+    {
+      "Type": 1,
+      "PosX":11,
+      "PosY": 6,
+      "CharRepresentation": "▣"
     },
     {
       "Type": 1,"Color": 4,
