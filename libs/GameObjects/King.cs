@@ -7,7 +7,7 @@ namespace libs
             Type = GameObjectType.King;
             CharRepresentation = '♔';
             Color = ConsoleColor.Red;
-            this.Collidable = true;
+             this.Collidable = true;
 
 
         //TODO Import and add those from JSON
