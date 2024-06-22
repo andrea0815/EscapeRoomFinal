@@ -765,9 +765,9 @@ namespace libs
 
         if (gameObject is Obstacle)
         {
-            if (gameObject.HasDialog())
+            if (gameObject != null && gameObject.HasDialog())
             {
-                gameObject.dialog.Start();
+                gameObject.dialog?.Start();
             }
             return false;
         }
