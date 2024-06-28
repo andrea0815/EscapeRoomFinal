@@ -22,14 +22,22 @@ namespace libs
 
             try
             {
-                var dialogs = DialogLoader.LoadDialogs(filePath);
+                var dialogs = DialogLoader.LoadDialogs(DialogLoader.GetDialogFilePath(relativeFilePath));
 
-                DialogNode node1 = new DialogNode(dialogs["dialog1"]);
-                DialogNode node2 = new DialogNode(dialogs["dialog2"]);
-                DialogNode node3 = new DialogNode(dialogs["dialog3"]);
-                DialogNode node4 = new DialogNode(dialogs["dialog4"]);
-                DialogNode node5 = new DialogNode(dialogs["dialog5"]);
-                DialogNode node6 = new DialogNode(dialogs["dialog6"]);
+                // Use LINQ to extract dialogs
+                var dialog1 = dialogs.FirstOrDefault(d => d.Key == "dialog1").Value;
+                var dialog2 = dialogs.FirstOrDefault(d => d.Key == "dialog2").Value;
+                var dialog3 = dialogs.FirstOrDefault(d => d.Key == "dialog3").Value;
+                var dialog4 = dialogs.FirstOrDefault(d => d.Key == "dialog4").Value;
+                var dialog5 = dialogs.FirstOrDefault(d => d.Key == "dialog5").Value;
+                var dialog6 = dialogs.FirstOrDefault(d => d.Key == "dialog6").Value;
+
+                DialogNode node1 = new DialogNode(dialog1);
+                DialogNode node2 = new DialogNode(dialog2);
+                DialogNode node3 = new DialogNode(dialog3);
+                DialogNode node4 = new DialogNode(dialog4);
+                DialogNode node5 = new DialogNode(dialog5);
+                DialogNode node6 = new DialogNode(dialog6);
 
                 // Adding responses to nodes
                 node1.AddResponse("You: Yes, I need some information.", node2);
@@ -60,7 +68,8 @@ namespace libs
             }
             catch (Exception ex)
             {
-                Color = ConsoleColor.White;
+                Console.WriteLine($"Error loading dialog: {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
             }
 
         }

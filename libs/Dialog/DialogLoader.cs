@@ -23,9 +23,7 @@ namespace libs
         public static string GetDialogFilePath(string relativePath)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
-            Console.WriteLine($"Current Directory: {currentDirectory}");
             string combinedPath = Path.Combine(currentDirectory, relativePath);
-            Console.WriteLine($"Combined Path: {combinedPath}");
             return combinedPath;
         }
     }
