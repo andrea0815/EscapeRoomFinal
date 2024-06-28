@@ -348,7 +348,9 @@ namespace libs
                 }
                 else
                 {
-                    Console.WriteLine("All levels completed!");
+                    Console.WriteLine("All levels completed! Press enter to go to Main Menu!");
+                    Console.ReadLine();
+                    DisplayMainMenu();
                 }
 
                 return true;
