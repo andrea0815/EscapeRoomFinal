@@ -834,11 +834,11 @@ namespace libs
                     Console.WriteLine("3: EXIT");
                 }
                 Console.Write("Select with Number Keys");
-
-                var input = Console.ReadKey();
                 Console.WriteLine(); // To move to the next line after key press
                 if (InputHandler != null)
                 {
+
+                    var input = Console.ReadKey();
                     InputHandler.Handle(input);
                     if (!InputHandler.IsInMenuMode)
                     {

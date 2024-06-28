@@ -7,7 +7,7 @@ namespace libs
 {
     public static class DialogLoader
     {
-        public static Dictionary<string, string> LoadDialogs(string filePath)
+        public static Dictionary<string, string>? LoadDialogs(string filePath)
         {
             if (File.Exists(filePath))
             {
@@ -16,7 +16,7 @@ namespace libs
             }
             else
             {
-                throw new FileNotFoundException($"The dialog file {filePath} does not exist.");
+                return null;
             }
         }
 

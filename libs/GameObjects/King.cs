@@ -23,14 +23,19 @@ namespace libs
             try
             {
                 var dialogs = DialogLoader.LoadDialogs(DialogLoader.GetDialogFilePath(relativeFilePath));
-
+                
+                if (dialogs == null)
+                {
+                    throw new Exception("Invalid dialog JSON.");
+                }
+                
                 // Use LINQ to extract dialogs
-                var dialog1 = dialogs.FirstOrDefault(d => d.Key == "dialog1").Value;
-                var dialog2 = dialogs.FirstOrDefault(d => d.Key == "dialog2").Value;
-                var dialog3 = dialogs.FirstOrDefault(d => d.Key == "dialog3").Value;
-                var dialog4 = dialogs.FirstOrDefault(d => d.Key == "dialog4").Value;
-                var dialog5 = dialogs.FirstOrDefault(d => d.Key == "dialog5").Value;
-                var dialog6 = dialogs.FirstOrDefault(d => d.Key == "dialog6").Value;
+                var dialog1 = dialogs.FirstOrDefault(d => d.Key == "dialog1").Value ?? throw new Exception("Dialog 'dialog1' not found.");
+                var dialog2 = dialogs.FirstOrDefault(d => d.Key == "dialog2").Value ?? throw new Exception("Dialog 'dialog2' not found.");
+                var dialog3 = dialogs.FirstOrDefault(d => d.Key == "dialog3").Value ?? throw new Exception("Dialog 'dialog3' not found.");
+                var dialog4 = dialogs.FirstOrDefault(d => d.Key == "dialog4").Value ?? throw new Exception("Dialog 'dialog4' not found.");
+                var dialog5 = dialogs.FirstOrDefault(d => d.Key == "dialog5").Value ?? throw new Exception("Dialog 'dialog5' not found.");
+                var dialog6 = dialogs.FirstOrDefault(d => d.Key == "dialog6").Value ?? throw new Exception("Dialog 'dialog6' not found.");
 
                 DialogNode node1 = new DialogNode(dialog1);
                 DialogNode node2 = new DialogNode(dialog2);
