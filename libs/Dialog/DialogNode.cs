@@ -3,21 +3,16 @@ using System.Net;
 
 namespace libs;
 
-public class DialogNode
+public class DialogNode(string text, string id = "", List<Response>? responses = null)
 {
-    public string Id { get; set; } // Add the 'Id' property
-    public string Text { get; set; }
-    public List<Response> Responses { get; set; }
 
-    public DialogNode(string text)
+    public string DialogID { get; set; } = id;
+    public string Text { get; set; } = text;
+    public List<Response> Responses = responses ?? new List<Response>();
+
+    public void AddResponse(string responseText, DialogNode nextNode)
     {
-        Text = text;
-        Responses = new List<Response>();
-        Id = string.Empty;
+        Responses.Add(new Response(responseText, nextNode));
     }
 
-    public void AddResponse(string responseText, string nextNodeId)
-    {
-        Responses.Add(new Response(responseText, nextNodeId));
-    }
 }
