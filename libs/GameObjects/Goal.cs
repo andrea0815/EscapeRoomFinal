@@ -5,7 +5,7 @@ namespace libs
         public Goal() : base()
         {            
             Type = GameObjectType.Goal;
-            CharRepresentation = '│';
+            CharRepresentation = '║';
             Color = ConsoleColor.Yellow;
         }
     }

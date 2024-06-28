@@ -5,17 +5,9 @@ using System.Threading.Tasks;
 
 namespace libs.Rendering
 {
-    public class GameState
+    public class GameState(List<GameObject> boxObjects, Player player)
     {
-        public List<GameObject> BoxObjects { get; }
-        public Player Player { get; }
-
-        public GameState(List<GameObject> boxObjects, Player player)
-        {
-            BoxObjects = boxObjects;
-            Player = player;
-
-        }
-
+        public List<GameObject> BoxObjects { get; } = boxObjects;
+        public Player Player { get; } = player;
     }
 }

@@ -1,3 +1,4 @@
+
 {
   "map": {
     "width": 35,
@@ -14,27 +15,24 @@
 
     {
       "Type": 2,
-      "Color": 6,
       "PosX": 4,
       "PosY": 2
     },
 
     {
       "Type": 2,
-      "Color": 6,
-      "PosX": 6,
-      "PosY": 4
-    },
-
-    {
-      "Type": 3,
-      "PosX": 7,
-      "PosY": 2
+      "PosX": 16,
+      "PosY": 5
     },
     {
       "Type": 6,
-      "PosX": 7,
-      "PosY": 3
+      "PosX": 26,
+      "PosY": 5
+    },
+    {
+      "Type": 7,
+      "PosX": 6,
+      "PosY": 1
     },
     {
       "Type": 1,
@@ -606,15 +604,13 @@
 
 
     {
-      "Type": 1,
-      "Color": 7,
+      "Type": 3,
       "PosX": 34,
       "PosY": 2,
       "CharRepresentation": "║"
     },
     {
-      "Type": 1,
-      "Color": 7,
+      "Type": 3,
       "PosX": 33,
       "PosY": 2,
       "CharRepresentation": "║"
