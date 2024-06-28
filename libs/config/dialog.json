@@ -1,50 +1,9 @@
-[
-    {
-      "id": 1,
-      "text": "King: Hello fellow, I need your help to escape this prison. Do you need more information?",
-      "responses": [
-        {"text": "You: Yes, I need some information.", "nextNodeId": 2},
-        {"text": "You: No, thanks.", "nextNodeId": 6}
-      ]
-    },
-    {
-      "id": 2,
-      "text": "King: Sure, what do you want to know?",
-      "responses": [
-        {"text": "You: What do I need to do?", "nextNodeId": 4},
-        {"text": "You: Why are you here?", "nextNodeId": 3},
-        {"text": "You: Nevermind.", "nextNodeId": 6}
-      ]
-    },
-    {
-      "id": 3,
-      "text": "King: I was imprisoned here for a crime I didn't commit. I need to escape to prove my innocence.",
-      "responses": [
-        {"text": "You: Oh, how terrible! I will help you!", "nextNodeId": 5},
-        {"text": "You: Okay, thanks for the information.", "nextNodeId": 6}
-      ]
-    },
-    {
-      "id": 4,
-      "text": "King: You have to find the key to open the door. They are both yellow, so you can't miss them.",
-      "responses": [
-        {"text": "You: I have some more questions.", "nextNodeId": 5},
-        {"text": "You: Thanks you for the information!", "nextNodeId": 6}
-      ]
-    },
-    {
-      "id": 5,
-      "text": "King: Do you need some more information?",
-      "responses": [
-        {"text": "You: What do I need to do?", "nextNodeId": 4},
-        {"text": "You: Why are you here?", "nextNodeId": 3},
-        {"text": "You: I had enough information, thank you.", "nextNodeId": 6}
-      ]
-    },
-    {
-      "id": 6,
-      "text": "King: Good luck, fellow!",
-      "responses": []
-    }
-  ]
+{
+    "dialog1": "King: Hello fellow, I need your help to escape this prison. Do you need more information?",
+    "dialog2": "King: Sure, what do you want to know?",
+    "dialog3": "King: I was imprisoned here for a crime I didn't commit. I need to escape to prove my innocence.",
+    "dialog4": "King: You have to find the key to open the door. They are both yellow, so you can't miss them.",
+    "dialog5": "King: Do you need some more information?",
+    "dialog6": "King: Good luck, fellow!"
+  }
   
