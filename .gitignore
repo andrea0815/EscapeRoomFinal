@@ -2,4 +2,5 @@
 **/obj/
 .DS_Store
 .vscode
-savedGames/
+savedGames/**
+savedGames/gameSave.json
