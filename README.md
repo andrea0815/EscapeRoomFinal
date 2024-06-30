@@ -1,113 +1,82 @@
+# EscapeRoom Game
 
-# EscapeRoom
+Welcome to EscapeRoom, a console-based adventure game implemented in C#!
 
-## Requirements
- 
-### Project Management
-Use Github for organization of your workload. Devide your workload and manage it by any agile approach (KANBAN or Onion Diagram). GIT history must show commits of each team mate.
- 
+## About the Game
 
-### Multiple levels
-- The game must provide at least 2 levels. 
-- They should differ regarding difficulty.
- 
+EscapeRoom is an engaging console game where players navigate through a series of rooms, solving puzzles and overcoming obstacles to escape. The game features a king character who needs the player's help to escape from prison and prove his innocence.
 
-### Main Menu
-- There must be a main menu. 
-- The design is up to you.
-- For instance: A MenuItem called "START" is displayed at the start of the game.
-- In addition there can be "LOAD" or "SAVE". As some of you already implemented.
- 
+### Key Features
 
-### Dialog
-- The game must contain a dialog. 
-- The design is up to you. 
-- The dialog and its DialogNodes must be loaded from a JSON. 
-- It can be a dialog with an NPC/GameObject or an "Introduction" of the game when starting it.
+- Three challenging levels with increasing difficulty
+- Interactive branching dialog system
+- Various game objects including keys, doors, traps, and more
+- Simple yet engaging console-based graphics
+- Time-limited gameplay (4 minutes to complete all levels)
 
- 
+## Getting Started
 
-### LINQ
-- Use LINQ in your implementation. 
-- It can be used for handling our GameObjects or Obstacles. 
-- You can use the Method or Query based syntax.
- 
+### Prerequisites
 
-### Presentation Video
-Present your outcomes in a video of 2-5 minutes. Keep it as simple as possible - a simple screencapture is totally fine.
-Think of our CodeReviews in class and point out the following topics:
-- Project Management: How did you manage your workload?
-- Implementation: Walk through the implemented requirements and explain your changes.
-- Dialog: show the flowchart of your dialog and explain your design. Point out which type of dialog is chosen and if there are any affects.
-- Demonstration of the game: capture the game walkthrough and move through all levels.
-- Conclusion: What was challenging? Any impediments?
+- .NET SDK 6.0 or later
+- Visual Studio 2022 or later (recommended) or any other C# compatible IDE
 
-- OPTIONAL: External Config file from Unity
-If you integrate config files from Unity (JSON) to your C# console app, you gain some extra points.
- 
+### Installation
 
-# Grading
-The following topics affect the grading:
+1. Clone the repository:
 
-- Fulfillment of requirements
-- CodeReview (Structure and Coding Conventions: Comments, Method Documentation)
-- Presentation Video requirements
- 
+   ```zsh, bash
+   git clone https://github.com/andrea0815/EscapeRoomFinal.git
+   ```
 
-### Project Management
-Use Github for organization of your workload. Devide your workload and manage it by any agile approach (KANBAN or Onion Diagram). GIT history must show commits of each team mate.
- 
+2. Open the solution file `EscapeRoomFinal.sln` in Visual Studio.
+3. Build the solution.
+4. Run the `ConsoleApp` project to start the game.
 
-### Multiple levels
-The game must provide at least 2 levels. They should differ regarding difficulty.
- 
+For more detailed setup instructions, please refer to our [Setup Guide](https://github.com/andrea0815/EscapeRoomFinal/wiki/Setup) in the wiki.
 
-### Main Menu
-- There must be a main menu. 
-- The design is up to you.
-- For instance: A MenuItem called "START" is displayed at the start of the game.
-- In addition there can be "LOAD" or "SAVE". As some of you already implemented.
- 
+## How to Play
 
-### Dialog
-- The game must contain a dialog. 
-- The design is up to you. 
-- The dialog and its DialogNodes must be loaded from a JSON. 
-- It can be a dialog with an NPC/GameObject or an "Introduction" of the game when starting it.
+- Use arrow keys to move your character (☻)
+- Collect keys (⚲) to unlock doors
+- Reach the yellow door to complete each level
+- Interact with the King character for guidance and story progression
+- Complete all three levels within the 4-minute time limit
 
- 
+For a more comprehensive gameplay guide, check out our [Gameplay](https://github.com/andrea0815/EscapeRoomFinal/wiki/Gameplay) wiki page.
 
-### LINQ
-- Use LINQ in your implementation. 
-- It can be used for handling our GameObjects or Obstacles. 
-- You can use the Method or Query based syntax.
- 
+## Project Structure
 
-### Presentation Video
-Present your outcomes in a video of 2-5 minutes. Keep it as simple as possible - a simple screencapture is totally fine.
-Think of our CodeReviews in class and point out the following topics:
-- Project Management: How did you manage your workload?
-- Implementation: Walk through the implemented requirements and explain your changes.
-- Dialog: show the flowchart of your dialog and explain your design. Point out which type of dialog is chosen and if there are any affects.
-- Demonstration of the game: capture the game walkthrough and move through all levels.
-- Conclusion: What was challenging? Any impediments?
+The project is organized into two main parts:
 
-- OPTIONAL: External Config file from Unity
-If you integrate config files from Unity (JSON) to your C# console app, you gain some extra points.
- 
+- `game`: Contains the main game application and test project.
+- `libs`: Houses the core game logic and components.
 
-# Grading
-The following topics affect the grading:
+For a detailed breakdown of the project structure, see our [Project Structure](https://github.com/andrea0815/EscapeRoomFinal/wiki/Project-Structure) wiki page.
 
-- Fulfillment of requirements
-- CodeReview (Structure and Coding Conventions: Comments, Method Documentation)
-- Presentation Video
+## Contributing
 
+We welcome contributions to the EscapeRoom project! If you're interested in improving the game or its documentation, please check our [Contributing Guide](https://github.com/andrea0815/EscapeRoomFinal/wiki/Contributing) for more information.
 
-// 0 Player,
-// 1 Obstacle,
-// 2 Box,
-// 3 Goal,
-// 4 Floor,
-// 5 Trap,
-// 6 Key
+Make sure to review our [Coding Conventions](https://github.com/andrea0815/EscapeRoomFinal/wiki/Coding-Conventions) before submitting your contributions.
+
+## Documentation
+
+For more detailed information about the project, including core components, dialog system, and level design, please refer to our [GitHub Wiki](https://github.com/andrea0815/EscapeRoomFinal/wiki).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Andrea Windisch & Bernhard Kofler - Project Developers
+- [FH St. Pölten, Bachelor Creative Computing]([https://www.bcc.a](https://www.fhstp.ac.at/en/academic-studies-continuing-education/media-digital-technologies/creative-computing)t) - project assignment
+
+## Contact
+
+For any queries or issues, please open an [issue](https://github.com/andrea0815/EscapeRoomFinal/issues) on this repository.
+
+---
+
+Enjoy playing EscapeRoom and happy coding!
